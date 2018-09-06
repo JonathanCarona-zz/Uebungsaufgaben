@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b45afc7a-112a-4eee-a3fc-dc7935b64f6f" name="Default Changelist" comment="" />
+    <list default="true" id="b45afc7a-112a-4eee-a3fc-dc7935b64f6f" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,7 +15,7 @@
     <session id="-1678098307">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.2" value="1" />
           <entry key="project.open.time.5" value="2" />
           <entry key="project.open.time.6" value="2" />
@@ -23,35 +26,35 @@
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="dist" value="1" />
-          <entry key="php" value="28" />
+          <entry key="php" value="29" />
           <entry key="xml" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="27" />
+          <entry key="PHP" value="28" />
           <entry key="Scratch" value="1" />
           <entry key="XML" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="8176" />
-          <entry key="txt" value="17" />
+          <entry key="php" value="8193" />
+          <entry key="txt" value="58" />
           <entry key="xml" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="7993" />
-          <entry key="PLAIN_TEXT" value="17" />
+          <entry key="PHP" value="8010" />
+          <entry key="PLAIN_TEXT" value="58" />
           <entry key="Scratch" value="183" />
           <entry key="XML" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.class">
         <counts>
-          <entry key="PHP Class.type" value="6" />
+          <entry key="PHP Class.type" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test">
@@ -84,11 +87,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/ZipTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+            <state relative-caret-position="589">
+              <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -105,16 +108,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Person.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
+            <state relative-caret-position="523">
+              <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
               <folding>
                 <element signature="n#getFavoriteColor#0;n#Person#0;n#!!top" />
                 <element signature="n#askforNumber#0;n#Person#0;n#!!top" />
                 <element signature="n#getTelefonnumber#0;n#Person#0;n#!!top" />
                 <element signature="n#getAge#0;n#Person#0;n#!!top" />
+                <element signature="n#getBirthday#0;n#Person#0;n#!!top" />
                 <element signature="n#getWholeName#0;n#Person#0;n#!!top" />
                 <element signature="n#getWholeAddress#0;n#Person#0;n#!!top" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/testcode/anotherClass.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="132">
+              <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -138,19 +151,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/autoload.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="5" selection-start-column="5" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Zip.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
+            <state relative-caret-position="594">
+              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
             </state>
           </provider>
         </entry>
@@ -174,6 +178,9 @@
       <dir>$PROJECT_DIR$/testcode</dir>
     </dirStrings>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -185,12 +192,12 @@
         <option value="$PROJECT_DIR$/testcode/main.php" />
         <option value="$PROJECT_DIR$/tests/PhonenumberTest.php" />
         <option value="$PROJECT_DIR$/src/Phonenumber.php" />
-        <option value="$PROJECT_DIR$/src/Zip.php" />
         <option value="$PROJECT_DIR$/src/Main.php" />
         <option value="$PROJECT_DIR$/src/Birthday.php" />
         <option value="$PROJECT_DIR$/tests/PersonTest.php" />
         <option value="$PROJECT_DIR$/src/Person.php" />
         <option value="$PROJECT_DIR$/tests/ZipTest.php" />
+        <option value="$PROJECT_DIR$/src/Zip.php" />
       </list>
     </option>
   </component>
@@ -232,6 +239,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
@@ -253,7 +261,7 @@
             <path>
               <item name="OOP1" type="b2602c69:ProjectViewProjectNode" />
               <item name="OOP1" type="462c0819:PsiDirectoryNode" />
-              <item name="tests" type="462c0819:PsiDirectoryNode" />
+              <item name="testcode" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="OOP1" type="b2602c69:ProjectViewProjectNode" />
@@ -337,14 +345,19 @@
       <workItem from="1536075395120" duration="11863000" />
       <workItem from="1536143495755" duration="2333000" />
       <workItem from="1536154407486" duration="10449000" />
-      <workItem from="1536222715272" duration="1235000" />
+      <workItem from="1536222715272" duration="4992000" />
     </task>
+    <task id="LOCAL-00001" summary="Anotherclass">
+      <created>1536237049799</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1536237049799</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="PhonenumberTest - 2018.09.06 at 09h 57m 05s.xml">
-      <configuration name="PhonenumberTest" configurationId="PHPUnitRunConfigurationType" />
-    </history-entry>
     <history-entry file="PersonTest - 2018.09.06 at 10h 41m 35s.xml">
       <configuration name="PersonTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
@@ -372,9 +385,12 @@
     <history-entry file="ZipTest - 2018.09.06 at 10h 46m 28s.xml">
       <configuration name="ZipTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
+    <history-entry file="ZipTest - 2018.09.06 at 10h 52m 44s.xml">
+      <configuration name="ZipTest" configurationId="PHPUnitRunConfigurationType" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39631000" />
+    <option name="totallyTimeSpent" value="43388000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -389,20 +405,20 @@
     <frame x="0" y="28" width="2560" height="1378" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16441083" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16441083" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.29435483" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.35564515" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.35564515" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32983872" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32983872" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32928804" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20307444" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -415,6 +431,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Anotherclass" />
+    <option name="LAST_COMMIT_MESSAGE" value="Anotherclass" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -448,6 +468,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="308">
           <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+          <folding>
+            <element signature="e#6#84#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -489,13 +512,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zip.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="20" column="30" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="phar:///var/www/includes/phpunit.phar/phpunit/Framework/Constraint/Constraint.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2222">
@@ -524,21 +540,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Person.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="9" selection-start-line="2" selection-start-column="9" selection-end-line="2" selection-end-column="9" />
-          <folding>
-            <element signature="n#getFavoriteColor#0;n#Person#0;n#!!top" />
-            <element signature="n#askforNumber#0;n#Person#0;n#!!top" />
-            <element signature="n#getTelefonnumber#0;n#Person#0;n#!!top" />
-            <element signature="n#getAge#0;n#Person#0;n#!!top" />
-            <element signature="n#getWholeName#0;n#Person#0;n#!!top" />
-            <element signature="n#getWholeAddress#0;n#Person#0;n#!!top" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/PersonTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="550">
@@ -553,10 +554,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zip.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="594">
+          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/tests/ZipTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="34" column="20" selection-start-line="34" selection-start-column="20" selection-end-line="34" selection-end-column="20" />
+        <state relative-caret-position="589">
+          <caret line="28" column="5" lean-forward="true" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Person.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="523">
+          <caret line="36" column="36" lean-forward="true" selection-start-line="36" selection-start-column="36" selection-end-line="36" selection-end-column="36" />
+          <folding>
+            <element signature="n#getFavoriteColor#0;n#Person#0;n#!!top" />
+            <element signature="n#askforNumber#0;n#Person#0;n#!!top" />
+            <element signature="n#getTelefonnumber#0;n#Person#0;n#!!top" />
+            <element signature="n#getAge#0;n#Person#0;n#!!top" />
+            <element signature="n#getBirthday#0;n#Person#0;n#!!top" />
+            <element signature="n#getWholeName#0;n#Person#0;n#!!top" />
+            <element signature="n#getWholeAddress#0;n#Person#0;n#!!top" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/testcode/anotherClass.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
         </state>
       </provider>
     </entry>
