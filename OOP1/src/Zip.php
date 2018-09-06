@@ -21,7 +21,7 @@ class Zip
     {
         // Postleitzahl muss eine 4 Stellige nummer sein
         if (($zip <= 999) || ($zip >= 10000)) {
-            throw new Exception('The Postcode must be a 4 digit number');
+            throw new Exception('The Postcode must be a 4 digit number.');
         }
     }
 
