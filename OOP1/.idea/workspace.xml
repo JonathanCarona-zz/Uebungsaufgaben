@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b45afc7a-112a-4eee-a3fc-dc7935b64f6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/testcode/Test.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/testcode/Test.html" beforeDir="false" afterPath="$PROJECT_DIR$/testcode/Test.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -40,17 +41,17 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="html" value="20" />
+          <entry key="html" value="50" />
           <entry key="php" value="8199" />
-          <entry key="txt" value="58" />
+          <entry key="txt" value="72" />
           <entry key="xml" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="20" />
+          <entry key="HTML" value="50" />
           <entry key="PHP" value="8016" />
-          <entry key="PLAIN_TEXT" value="58" />
+          <entry key="PLAIN_TEXT" value="72" />
           <entry key="Scratch" value="183" />
           <entry key="XML" value="16" />
         </counts>
@@ -126,11 +127,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/testcode/Test.html">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="176">
-              <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+              <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -153,11 +154,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Zip.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
+            <state relative-caret-position="484">
+              <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
             </state>
           </provider>
         </entry>
@@ -359,7 +360,7 @@
       <workItem from="1536143495755" duration="2333000" />
       <workItem from="1536154407486" duration="10449000" />
       <workItem from="1536222715272" duration="4992000" />
-      <workItem from="1536237164071" duration="255000" />
+      <workItem from="1536237164071" duration="2092000" />
     </task>
     <task id="LOCAL-00001" summary="Anotherclass">
       <created>1536237049799</created>
@@ -368,7 +369,28 @@
       <option name="project" value="LOCAL" />
       <updated>1536237049799</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Test Html File">
+      <created>1536237445329</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1536237445329</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Test Html File">
+      <created>1536237532852</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1536237532852</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Test Html File">
+      <created>1536237574289</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1536237574289</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -404,7 +426,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43643000" />
+    <option name="totallyTimeSpent" value="45480000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -417,7 +439,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="28" width="2560" height="1378" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1656051" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -448,7 +469,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Anotherclass" />
-    <option name="LAST_COMMIT_MESSAGE" value="Anotherclass" />
+    <MESSAGE value="Test Html File" />
+    <option name="LAST_COMMIT_MESSAGE" value="Test Html File" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -581,13 +603,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Zip.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="33" column="4" selection-start-line="33" selection-start-column="4" selection-end-line="33" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="phar:///var/www/includes/phpunit.phar/phpunit/Framework/Constraint/Constraint.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2222">
@@ -605,7 +620,14 @@
     <entry file="file://$PROJECT_DIR$/testcode/Test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
-          <caret line="8" column="9" lean-forward="true" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Zip.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="27" column="33" lean-forward="true" selection-start-line="27" selection-start-column="33" selection-end-line="27" selection-end-column="33" />
         </state>
       </provider>
     </entry>
