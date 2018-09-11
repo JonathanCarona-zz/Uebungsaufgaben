@@ -2,10 +2,11 @@
 
 
 use PHPUnit\Framework\TestCase;
-
+require 'autoload.php';
 
 class AutorTest extends TestCase
 {
+    /** @var Autor */
     private $stephenKing;
 
     protected function setUp()

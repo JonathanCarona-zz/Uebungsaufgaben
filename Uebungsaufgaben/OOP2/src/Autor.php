@@ -18,7 +18,7 @@ class Autor
         if ($email != null) {
             $this->email = $email;
         } else {
-            $this->email = "No Email";
+            $this->email = 'No Email';
         }
 
     }

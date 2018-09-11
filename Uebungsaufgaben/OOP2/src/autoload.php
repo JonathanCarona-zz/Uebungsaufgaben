@@ -7,7 +7,9 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
-
+                'autor' => '/Autor.php',
+                'buch' => '/Buch.php',
+                'email' => '/Email.php'
             );
         }
         $cn = strtolower($class);
