@@ -15,9 +15,13 @@ class Autor
     {
         $this->name = $name;
         $this->vorName = $vorName;
-        $this->email = $email;
-    }
+        if ($email != null) {
+            $this->email = $email;
+        } else {
+            $this->email = "No Email";
+        }
 
+    }
 
     public function getName()
     {
@@ -29,7 +33,7 @@ class Autor
         return $this->vorName;
     }
 
-    public function getEmail(): Email
+    public function getEmail()
     {
         return $this->email;
     }

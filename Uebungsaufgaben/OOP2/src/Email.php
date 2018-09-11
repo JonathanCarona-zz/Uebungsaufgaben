@@ -19,8 +19,6 @@ class Email
             } else {
                 throw new Exception($email . ' is not valid');
             }
-        } else {
-            $this->email = 'No Email';
         }
     }
 
@@ -28,6 +26,4 @@ class Email
     {
         return $this->email;
     }
-
-
 }
