@@ -15,6 +15,7 @@ class Autor
     {
         $this->name = $name;
         $this->vorName = $vorName;
+        //todo: 
         if ($email != null) {
             $this->email = $email;
         } else {

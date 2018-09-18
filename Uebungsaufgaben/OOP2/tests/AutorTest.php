@@ -2,7 +2,8 @@
 
 
 use PHPUnit\Framework\TestCase;
-require 'autoload.php';
+
+require '../src/autoload.php';
 
 class AutorTest extends TestCase
 {
@@ -13,12 +14,22 @@ class AutorTest extends TestCase
     {
         $stephenKingMail = new Email('StephenKing@example.com');
         $this->stephenKing = new Autor('King', 'Stephen', $stephenKingMail);
-
     }
 
-    public function testAutorCanExecuteAMethod()
+    public function testCanExecuteMethod()
     {
         $this->assertSame('Stephen', $this->stephenKing->getVorName());
+    }
+
+    public function testEmailCanBeLeftBlank()
+    {
+        $anotherStephenKing = new Autor('King', 'Stephen');
+        $this->assertSame('No Email', $anotherStephenKing->getEmail());
+    }
+
+    public function testToString()
+    {
+        $this->assertSame('Stephen King', (string)$this->stephenKing);
     }
 
 

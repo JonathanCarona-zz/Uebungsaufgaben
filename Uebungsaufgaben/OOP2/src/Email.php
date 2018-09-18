@@ -22,6 +22,14 @@ class Email
         }
     }
 
+
+    public function getEmail(): string
+    {
+        return $this->email;
+    }
+
+
+
     public function __toString(): string
     {
         return $this->email;
