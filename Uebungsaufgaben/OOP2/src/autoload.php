@@ -7,8 +7,8 @@ spl_autoload_register(
         static $classes = null;
         if ($classes === null) {
             $classes = array(
-                'autor' => '/Autor.php',
-                'buch' => '/Buch.php',
+                'author' => '/Author.php',
+                'book' => '/Book.php',
                 'email' => '/Email.php'
             );
         }

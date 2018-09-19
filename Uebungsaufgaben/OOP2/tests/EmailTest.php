@@ -2,10 +2,12 @@
 
 
 use PHPUnit\Framework\TestCase;
+
 require '../src/autoload.php';
 
 class EmailTest extends TestCase
 {
+    /** @var Email */
     private $email;
 
     protected function setUp()
@@ -14,8 +16,13 @@ class EmailTest extends TestCase
 
     }
 
+    public function testToString()
+    {
+        $this->assertSame('jonathancarona@outlook.com', (string)$this->email);
+    }
 
-    /** @dataProvider provideInvalidEmails*/
+
+    /** @dataProvider provideInvalidEmails */
     public function testInvalidEmailsThrowsException(string $input)
     {
         $this->expectException(Exception::class);

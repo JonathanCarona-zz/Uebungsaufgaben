@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b45afc7a-112a-4eee-a3fc-dc7935b64f6f" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/OOP2/tests/BuchTest.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/OOP2/tests/EmailTest.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OOP2/src/Author.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/OOP2/tests/AuthorTest.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP2/src/Autor.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP2/src/Autor.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP2/src/Autor.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP2/src/Buch.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP2/src/Book.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OOP2/src/Email.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP2/src/Email.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OOP2/tests/AutorTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP2/tests/AutorTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP2/src/Main.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP2/src/Main.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP2/src/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP2/src/autoload.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP2/tests/AutorTest.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP2/tests/BuchTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP2/tests/BookTest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/OOP2/tests/EmailTest.php" beforeDir="false" afterPath="$PROJECT_DIR$/OOP2/tests/EmailTest.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -92,14 +97,15 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="php" value="2183" />
+          <entry key="dummy" value="4" />
+          <entry key="php" value="3984" />
           <entry key="txt" value="26" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="PHP" value="2183" />
-          <entry key="PLAIN_TEXT" value="26" />
+          <entry key="PHP" value="3984" />
+          <entry key="PLAIN_TEXT" value="30" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.php.new.test">
@@ -111,13 +117,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="php" value="46" />
+          <entry key="php" value="54" />
           <entry key="xml" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="PHP" value="46" />
+          <entry key="PHP" value="54" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -125,11 +131,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/OOP2/src/Autor.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OOP2/src/Author.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+            <state relative-caret-position="330">
+              <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -137,17 +143,35 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OOP2/src/Email.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+            <state relative-caret-position="242">
+              <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/OOP2/tests/EmailTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="594">
+              <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="phar:///var/www/includes/phpunit.phar/phpunit/TextUI/TestRunner.php">
+        <entry file="file://$PROJECT_DIR$/OOP2/tests/BookTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="684" selection-start-line="684" selection-end-line="684" />
+            <state relative-caret-position="1166">
+              <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OOP2/src/Book.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="526">
+              <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -155,44 +179,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OOP2/src/Main.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state relative-caret-position="242">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OOP2/src/Buch.php">
+        <entry file="file://$PROJECT_DIR$/OOP2/tests/AuthorTest.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="528">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OOP2/tests/EmailTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="594">
-              <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OOP2/tests/BuchTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
-              <caret line="41" column="49" lean-forward="true" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OOP2/tests/AutorTest.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="550">
-              <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
+            <state relative-caret-position="328">
+              <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -209,8 +206,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OOP2/tests/autoload.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+            <state relative-caret-position="374">
+              <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -260,14 +257,18 @@
         <option value="$PROJECT_DIR$/testcode/Test.html" />
         <option value="$PROJECT_DIR$/src/Zip.php" />
         <option value="$PROJECT_DIR$/OOP2/src/autoload.php" />
-        <option value="$PROJECT_DIR$/OOP2/src/Buch.php" />
         <option value="$PROJECT_DIR$/OOP2/tests/autoload.php" />
-        <option value="$PROJECT_DIR$/OOP2/src/Main.php" />
-        <option value="$PROJECT_DIR$/OOP2/tests/AutorTest.php" />
-        <option value="$PROJECT_DIR$/OOP2/src/Email.php" />
-        <option value="$PROJECT_DIR$/OOP2/tests/EmailTest.php" />
-        <option value="$PROJECT_DIR$/OOP2/tests/BuchTest.php" />
         <option value="$PROJECT_DIR$/OOP2/src/Autor.php" />
+        <option value="$PROJECT_DIR$/OOP2/src/Buch.php" />
+        <option value="$PROJECT_DIR$/OOP2/src/Main.php" />
+        <option value="$PROJECT_DIR$/OOP2/tests/BuchTest.php" />
+        <option value="$PROJECT_DIR$/OOP2/tests/AutorTest.php" />
+        <option value="$PROJECT_DIR$/OOP2/tests/EmailTest.php" />
+        <option value="$PROJECT_DIR$/OOP2/src/Email.php" />
+        <option value="$PROJECT_DIR$/OOP2/tests/AuthorTest.php" />
+        <option value="$PROJECT_DIR$/OOP2/src/Book.php" />
+        <option value="$PROJECT_DIR$/OOP2/tests/BookTest.php" />
+        <option value="$PROJECT_DIR$/OOP2/src/Author.php" />
       </list>
     </option>
   </component>
@@ -310,6 +311,11 @@
             <id>SQL</id>
           </State>
         </expanded-state>
+        <selected-state>
+          <State>
+            <id>Angular</id>
+          </State>
+        </selected-state>
       </profile-state>
     </entry>
   </component>
@@ -368,7 +374,7 @@
     <property name="com.jetbrains.php.phpunit.codeGeneration.PhpNewTestDialog.defaultLibrary" value="PHPUnit 6+" />
     <property name="last_opened_file_path" value="/var/www/includes/phpunit.phar" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -391,25 +397,25 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="PHPUnit.BuchTest.testInvalidAmountOfPagesThrowsException">
-    <configuration name="BuchTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="BuchTest" file="$PROJECT_DIR$/OOP2/tests/BuchTest.php" scope="Class" />
+  <component name="RunManager" selected="PHPUnit.BookTest.testGetEmailAddressOfTheAuthorWorks">
+    <configuration name="AuthorTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="AuthorTest" file="$PROJECT_DIR$/OOP2/tests/AuthorTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="BuchTest.testInvalidAmountOfPagesThrowsException" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="BuchTest" file="$PROJECT_DIR$/OOP2/tests/BuchTest.php" method="testInvalidAmountOfPagesThrowsException" scope="Method" />
+    <configuration name="BookTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="BookTest" file="$PROJECT_DIR$/OOP2/tests/BookTest.php" scope="Class" />
       <method v="2" />
     </configuration>
-    <configuration name="BuchTest.testInvalidReleaseDateThrowsException" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="BuchTest" file="$PROJECT_DIR$/OOP2/tests/BuchTest.php" method="testInvalidReleaseDateThrowsException" scope="Method" />
+    <configuration name="BookTest.testAllGettersCanBeExecuted" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="BookTest" file="$PROJECT_DIR$/OOP2/tests/BookTest.php" method="testAllGettersCanBeExecuted" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="EmailTest" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="EmailTest" file="$PROJECT_DIR$/OOP2/tests/EmailTest.php" scope="Class" />
+    <configuration name="BookTest.testGetEmailAddressOfTheAuthorWorks" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="BookTest" file="$PROJECT_DIR$/OOP2/tests/BookTest.php" method="testGetEmailAddressOfTheAuthorWorks" scope="Method" />
       <method v="2" />
     </configuration>
-    <configuration name="EmailTest.testInvalidEmailsThrowsException" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="EmailTest" file="$PROJECT_DIR$/OOP2/tests/EmailTest.php" method="testInvalidEmailsThrowsException" scope="Method" />
+    <configuration name="EmailTest.testToString" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="EmailTest" file="$PROJECT_DIR$/OOP2/tests/EmailTest.php" method="testToString" scope="Method" />
       <method v="2" />
     </configuration>
     <configuration name="Main.php (1)" type="PhpLocalRunConfigurationType" factoryName="PHP Console" path="$PROJECT_DIR$/OOP2/src/Main.php">
@@ -417,19 +423,19 @@
     </configuration>
     <list>
       <item itemvalue="PHP Script.Main.php (1)" />
-      <item itemvalue="PHPUnit.BuchTest.testInvalidReleaseDateThrowsException" />
-      <item itemvalue="PHPUnit.BuchTest" />
-      <item itemvalue="PHPUnit.EmailTest" />
-      <item itemvalue="PHPUnit.EmailTest.testInvalidEmailsThrowsException" />
-      <item itemvalue="PHPUnit.BuchTest.testInvalidAmountOfPagesThrowsException" />
+      <item itemvalue="PHPUnit.AuthorTest" />
+      <item itemvalue="PHPUnit.BookTest" />
+      <item itemvalue="PHPUnit.BookTest.testAllGettersCanBeExecuted" />
+      <item itemvalue="PHPUnit.EmailTest.testToString" />
+      <item itemvalue="PHPUnit.BookTest.testGetEmailAddressOfTheAuthorWorks" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="PHPUnit.BuchTest.testInvalidAmountOfPagesThrowsException" />
-        <item itemvalue="PHPUnit.BuchTest" />
-        <item itemvalue="PHPUnit.EmailTest" />
-        <item itemvalue="PHPUnit.EmailTest.testInvalidEmailsThrowsException" />
-        <item itemvalue="PHPUnit.BuchTest.testInvalidReleaseDateThrowsException" />
+        <item itemvalue="PHPUnit.BookTest.testGetEmailAddressOfTheAuthorWorks" />
+        <item itemvalue="PHPUnit.AuthorTest" />
+        <item itemvalue="PHPUnit.EmailTest.testToString" />
+        <item itemvalue="PHPUnit.BookTest.testAllGettersCanBeExecuted" />
+        <item itemvalue="PHPUnit.BookTest" />
       </list>
     </recent_temporary>
   </component>
@@ -450,7 +456,7 @@
       <workItem from="1536154407486" duration="10449000" />
       <workItem from="1536222715272" duration="4992000" />
       <workItem from="1536237164071" duration="9695000" />
-      <workItem from="1536663067551" duration="14931000" />
+      <workItem from="1536663067551" duration="28128000" />
     </task>
     <task id="LOCAL-00001" summary="Anotherclass">
       <created>1536237049799</created>
@@ -515,43 +521,50 @@
       <option name="project" value="LOCAL" />
       <updated>1536671143504</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Test Html File">
+      <created>1537261896937</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1537261896937</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="EmailTest - 2018.09.18 at 10h 40m 29s.xml">
-      <configuration name="EmailTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="BookTest_testAllGettersCanBeExecuted - 2018.09.18 at 14h 58m 20s.xml">
+      <configuration name="BookTest.testAllGettersCanBeExecuted" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest - 2018.09.18 at 10h 59m 34s.xml">
-      <configuration name="BuchTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="EmailTest_testToString - 2018.09.18 at 15h 03m 18s.xml">
+      <configuration name="EmailTest.testToString" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest - 2018.09.18 at 10h 59m 56s.xml">
-      <configuration name="BuchTest" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="EmailTest_testToString - 2018.09.18 at 15h 36m 21s.xml">
+      <configuration name="EmailTest.testToString" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest_testInvalidAmountOfPagesThrowsException - 2018.09.18 at 11h 03m 30s.xml">
-      <configuration name="BuchTest.testInvalidAmountOfPagesThrowsException" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="EmailTest_testToString - 2018.09.18 at 15h 36m 39s.xml">
+      <configuration name="EmailTest.testToString" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest_testInvalidAmountOfPagesThrowsException - 2018.09.18 at 11h 03m 39s.xml">
-      <configuration name="BuchTest.testInvalidAmountOfPagesThrowsException" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AuthorTest - 2018.09.18 at 15h 36m 47s.xml">
+      <configuration name="AuthorTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest_testInvalidAmountOfPagesThrowsException - 2018.09.18 at 11h 03m 51s.xml">
-      <configuration name="BuchTest.testInvalidAmountOfPagesThrowsException" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AuthorTest - 2018.09.18 at 15h 40m 04s.xml">
+      <configuration name="AuthorTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest_testInvalidAmountOfPagesThrowsException - 2018.09.18 at 11h 03m 59s.xml">
-      <configuration name="BuchTest.testInvalidAmountOfPagesThrowsException" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="AuthorTest - 2018.09.18 at 15h 40m 44s.xml">
+      <configuration name="AuthorTest" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest_testInvalidAmountOfPagesThrowsException - 2018.09.18 at 11h 04m 06s.xml">
-      <configuration name="BuchTest.testInvalidAmountOfPagesThrowsException" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="BookTest_testGetEmailAddressOfTheAuthorWorks - 2018.09.18 at 15h 47m 34s.xml">
+      <configuration name="BookTest.testGetEmailAddressOfTheAuthorWorks" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest_testInvalidAmountOfPagesThrowsException - 2018.09.18 at 11h 04m 17s.xml">
-      <configuration name="BuchTest.testInvalidAmountOfPagesThrowsException" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="BookTest_testGetEmailAddressOfTheAuthorWorks - 2018.09.18 at 15h 49m 38s.xml">
+      <configuration name="BookTest.testGetEmailAddressOfTheAuthorWorks" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
-    <history-entry file="BuchTest_testInvalidAmountOfPagesThrowsException - 2018.09.18 at 11h 04m 32s.xml">
-      <configuration name="BuchTest.testInvalidAmountOfPagesThrowsException" configurationId="PHPUnitRunConfigurationType" />
+    <history-entry file="BookTest_testGetEmailAddressOfTheAuthorWorks - 2018.09.18 at 15h 50m 44s.xml">
+      <configuration name="BookTest.testGetEmailAddressOfTheAuthorWorks" configurationId="PHPUnitRunConfigurationType" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68014000" />
+    <option name="totallyTimeSpent" value="81211000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -566,12 +579,12 @@
     <frame x="0" y="28" width="2560" height="1378" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16679937" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.10828026" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.29435483" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49761146" visible="true" weight="0.355178" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.4968153" weight="0.1763754" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4960191" visible="true" weight="0.27993527" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.4996019" weight="0.39967638" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -579,8 +592,8 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32928804" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.49800956" weight="0.20307444" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50238854" side_tool="true" visible="true" weight="0.355178" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4968153" weight="0.20307444" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5039809" side_tool="true" visible="true" weight="0.27993527" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32928804" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -720,9 +733,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OOP1/tests/autoload.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/OOP1/tests/ZipTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -734,20 +744,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1176">
           <caret line="300" column="9" selection-start-line="300" selection-start-column="9" selection-end-line="300" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OOP1/tests/PersonTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OOP1/tests/PhonenumberTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="8" lean-forward="true" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -856,24 +852,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/OOP1/tests/autoload.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OOP1/tests/PhonenumberTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="20" column="23" selection-start-line="20" selection-start-column="23" selection-end-line="20" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OOP2/tests/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="15" column="9" lean-forward="true" selection-start-line="15" selection-start-column="9" selection-end-line="15" selection-end-column="9" />
+        <state relative-caret-position="374">
+          <caret line="17" column="9" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OOP2/src/Main.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="242">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OOP2/src/Email.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+        <state relative-caret-position="242">
+          <caret line="11" column="42" lean-forward="true" selection-start-line="11" selection-start-column="42" selection-end-line="11" selection-end-column="42" />
         </state>
       </provider>
     </entry>
@@ -884,38 +890,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OOP2/src/Buch.php">
+    <entry file="file://$PROJECT_DIR$/OOP1/tests/PersonTest.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="528">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="638">
+          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OOP2/src/Author.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="15" column="40" selection-start-line="15" selection-start-column="40" selection-end-line="15" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OOP2/src/Book.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="69" column="20" selection-start-line="69" selection-start-column="20" selection-end-line="69" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OOP2/tests/AuthorTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="23" column="5" lean-forward="true" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OOP2/tests/BookTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1166">
+          <caret line="53" column="45" selection-start-line="53" selection-start-column="45" selection-end-line="53" selection-end-column="45" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OOP2/tests/EmailTest.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="594">
-          <caret line="27" column="5" lean-forward="true" selection-start-line="27" selection-start-column="5" selection-end-line="27" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OOP2/tests/BuchTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
-          <caret line="41" column="49" lean-forward="true" selection-start-line="41" selection-start-column="49" selection-end-line="41" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OOP2/tests/AutorTest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="25" column="42" lean-forward="true" selection-start-line="25" selection-start-column="42" selection-end-line="25" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/OOP2/src/Autor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="17" column="16" selection-start-line="17" selection-start-column="16" selection-end-line="17" selection-end-column="16" />
+          <caret line="27" column="39" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
         </state>
       </provider>
     </entry>
