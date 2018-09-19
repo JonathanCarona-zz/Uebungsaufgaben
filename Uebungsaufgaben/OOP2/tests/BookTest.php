@@ -23,6 +23,10 @@ class BookTest extends TestCase
         $this->assertSame('Harry Potter', $this->myBook->getTitle());
         $this->assertSame(2001, $this->myBook->getReleaseYear());
         $this->assertSame(987, $this->myBook->getAmountOfPages());
+        $this->author
+            ->expects($this->once())
+            ->method('__toString')
+            ->willReturn('JK Rowling');
         $this->assertSame('JK Rowling', (string) $this->myBook->getAuthor());
         $this->assertSame('Magic', $this->myBook->getGenre());
     }
@@ -73,6 +77,4 @@ class BookTest extends TestCase
 
         $this->assertSame($expectedEmail, $this->myBook->getEmailAddressOfTheAuthor());
     }
-
-
 }

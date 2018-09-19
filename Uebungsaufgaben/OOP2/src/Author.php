@@ -13,7 +13,6 @@ class Author
 
     public function __construct(string $LastName, string $firstName, Email $email)
     {
-        throw new \Exception('bad dev');
         $this->lastName = $LastName;
         $this->firstName = $firstName;
         $this->email = $email;

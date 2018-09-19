@@ -23,8 +23,6 @@ class AuthorTest extends TestCase
 
     }
 
-
-
     public function testCanExecuteGetters()
     {
         $this->assertSame('Stephen', $this->stephenKing->getFirstName());
