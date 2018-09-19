@@ -13,18 +13,11 @@ class Email
         $this->email = $email;
     }
 
-    private function ensureEmailIsValid($email)
+    private function ensureEmailIsValid($email): void
     {
-        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            $this->email = $email;
-        } else {
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
             throw new Exception($email . ' is not valid');
         }
-    }
-
-    public function setEmail(string $email): void
-    {
-        $this->email = $email;
     }
 
     public function __toString(): string

@@ -3,8 +3,9 @@
 
 use PHPUnit\Framework\TestCase;
 
-require '../src/autoload.php';
-
+/**
+ * @covers Book
+ */
 class BookTest extends TestCase
 {
     /** @var Book */
@@ -23,11 +24,7 @@ class BookTest extends TestCase
         $this->assertSame('Harry Potter', $this->myBook->getTitle());
         $this->assertSame(2001, $this->myBook->getReleaseYear());
         $this->assertSame(987, $this->myBook->getAmountOfPages());
-        $this->author
-            ->expects($this->once())
-            ->method('__toString')
-            ->willReturn('JK Rowling');
-        $this->assertSame('JK Rowling', (string) $this->myBook->getAuthor());
+        $this->assertSame($this->author, $this->myBook->getAuthor());
         $this->assertSame('Magic', $this->myBook->getGenre());
     }
 
@@ -45,7 +42,7 @@ class BookTest extends TestCase
         return [
             [2019],
             [2020],
-            [2222.3524]
+            [2222.3524],
         ];
     }
 

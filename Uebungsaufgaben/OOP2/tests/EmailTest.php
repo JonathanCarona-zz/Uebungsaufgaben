@@ -3,8 +3,9 @@
 
 use PHPUnit\Framework\TestCase;
 
-require '../src/autoload.php';
-
+/**
+ * @covers Email
+ */
 class EmailTest extends TestCase
 {
     /** @var Email */

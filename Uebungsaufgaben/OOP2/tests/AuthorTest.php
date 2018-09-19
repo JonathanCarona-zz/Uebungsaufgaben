@@ -3,8 +3,6 @@
 
 use PHPUnit\Framework\TestCase;
 
-require '../src/autoload.php';
-
 /**
  * @covers Author
  */

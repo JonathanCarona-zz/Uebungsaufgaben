@@ -19,12 +19,6 @@ class Author
 
     }
 
-
-    public function setEmail(Email $email): void
-    {
-        $this->email = $email;
-    }
-
     public function getLastName(): string
     {
         return $this->lastName;
