@@ -23,7 +23,7 @@ class CircleTest extends TestCase
     public function testInvalidSideInputs(float $input)
     {
         $this->expectException(Exception::class);
-        $this->expectExceptionMessage('The radius cannot be lower or be zero long.');
+        $this->expectExceptionMessage(sprintf('The radius "%s" cannot be lower or be zero long.', $input));
 
         new Circle($input);
     }

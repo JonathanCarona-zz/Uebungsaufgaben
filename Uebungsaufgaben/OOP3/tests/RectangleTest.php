@@ -4,7 +4,6 @@
 use PHPUnit\Framework\TestCase;
 
 
-
 /**
  * @covers Rectangle
  */
@@ -24,7 +23,11 @@ class RectangleTest extends TestCase
     public function testInvalidSideInputs($input1, $input2)
     {
         $this->expectException(Exception::class);
-        $this->expectExceptionMessage('The sides cannot be lower or be zero long.');
+        if ($input1 <= 0) {
+            $this->expectExceptionMessage(sprintf('The side A "%s" cannot be lower or be zero long.', $input1));
+        } else {
+            $this->expectExceptionMessage(sprintf('The side B "%s" cannot be lower or be zero long.', $input2));
+        }
 
         new Rectangle($input1, $input2);
     }
@@ -36,7 +39,7 @@ class RectangleTest extends TestCase
             [6, -6],
             [-12, -12],
             [-0, 0],
-            [0,10],
+            [0, 10],
             [20, 0],
             [0, -10],
             [-20, 0]

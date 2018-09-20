@@ -22,7 +22,7 @@ class SquareTest extends TestCase
     public function testInvalidSideInputs($input)
     {
         $this->expectException(Exception::class);
-        $this->expectExceptionMessage('The sides cannot be lower or be zero long.');
+        $this->expectExceptionMessage(sprintf('The side A "%s" cannot be lower or be zero long.', $input));
 
         new Square($input);
     }

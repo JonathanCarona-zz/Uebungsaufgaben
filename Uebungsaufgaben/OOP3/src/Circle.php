@@ -15,29 +15,30 @@ class Circle implements Figure
     public function __construct(float $radius)
     {
         if ($radius <= 0) {
-            throw new Exception('The radius cannot be lower or be zero long.');
+            throw new Exception(sprintf('The radius "%s" cannot be lower or be zero long.', $radius));
         }
         $this->radius = $radius;
-        $this->perimeter = $radius * 2 * pi();
-        $this->diagonal = $radius * 2;
-        $this->area = pow($radius, 2) * pi();
+
     }
 
 
     public function getPerimeter(): float
     {
+        $this->perimeter = $this->radius * 2 * pi();
         return $this->perimeter;
     }
 
 
     public function getDiagonal(): float
     {
+        $this->diagonal = $this->radius * 2;
         return $this->diagonal;
     }
 
 
     public function getArea(): float
     {
+        $this->area = pow($this->radius, 2) * pi();
         return $this->area;
     }
 
