@@ -12,6 +12,4 @@ class Square extends Rectangle
     {
         return $this->getSideA() * sqrt(2);
     }
-
-
 }
