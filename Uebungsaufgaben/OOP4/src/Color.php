@@ -11,12 +11,10 @@ class Color
         $this->color = $color;
     }
 
-    public function getColor()
+    public function __toString(): string
     {
         return $this->color;
     }
-
-
 
 
 }

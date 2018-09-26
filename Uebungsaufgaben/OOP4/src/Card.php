@@ -14,10 +14,13 @@ class Card
 
     }
 
-    public function flipCard(): void
+
+    public function setIsCovered(bool $isCovered): void
     {
-        $this->isCovered = true;
+        $this->isCovered = $isCovered;
     }
+
+
 
     public function getColor(): Color
     {
@@ -25,14 +28,14 @@ class Card
     }
 
 
-    public function isCovered(): bool
+    public function getIsCovered(): bool
     {
         return $this->isCovered;
     }
 
-    public function __toString()
+    public function __toString(): string
     {
-        return $this->color->getColor() . ' Card';
+        return $this->color . ' Card';
     }
 
 }

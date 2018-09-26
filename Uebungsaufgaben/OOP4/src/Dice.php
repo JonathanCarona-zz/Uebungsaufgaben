@@ -3,8 +3,7 @@
 
 class Dice
 {
-    /** @var Color */
-    private $color;
+
     /** @var Configuration */
     private $configuration;
 
@@ -15,12 +14,11 @@ class Dice
     }
 
 
-    public function roll(): void
+    public function roll(): Color
     {
         $possibleColors = $this->configuration->getConfPossibleColors();
-        $intDiceColor = rand(0, count($possibleColors));
-        $diceColor = $possibleColors[$intDiceColor];
-        $this->color = $diceColor;
+        $intDiceColor = rand(0, count($possibleColors) - 1);
+        return $possibleColors[$intDiceColor];
     }
 
 

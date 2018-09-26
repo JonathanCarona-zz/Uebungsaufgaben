@@ -2,9 +2,13 @@
 
 require 'autoload.php';
 
-$Alice = new Player('Alice');
-$Bob = new Player('Bob');
-$Carol = new Player('Carol');
+
+$logger = new StandardOutLogger();
+$fileLogger = new FileLogger();
+
+$Alice = new Player('Alice', $logger);
+$Bob = new Player('Bob', $logger);
+$Carol = new Player('Carol', $logger);
 
 $red = new Color('Red');
 $green = new Color('Green');
@@ -14,8 +18,8 @@ $blue = new Color('Blue');
 $playerArray = array($Alice, $Bob, $Carol);
 $colorArray = array($red, $green, $yellow, $blue);
 
-$configuration = new Configuration(5, $playerArray, $colorArray);
+$configuration = new Configuration(2, $playerArray, $colorArray);
 
-$game = new Game($configuration);
+$game = new Game($configuration, $logger);
 
 $game->playGame();
