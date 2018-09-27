@@ -2,10 +2,6 @@
 
 require 'autoload.php';
 
-
-$logger = new StandardOutLogger();
-$fileLogger = new FileLogger();
-
 $Alice = new Player('Alice');
 $Bob = new Player('Bob');
 $Carol = new Player('Carol');
@@ -19,8 +15,12 @@ $playerArray = array($Alice, $Bob, $Carol);
 $colorArray = array($red, $green, $yellow, $blue);
 
 $configuration = new Configuration(2, $playerArray, $colorArray);
-$dice = new Dice($configuration);
 
-$game = new Game($configuration, $logger, $dice);
+
+$factory = new Factory($configuration);
+
+$dice = $factory->createDice();
+
+$game = $factory->createGame();
 
 $game->playGame();
