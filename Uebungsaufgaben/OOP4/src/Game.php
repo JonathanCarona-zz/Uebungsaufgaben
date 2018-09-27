@@ -18,11 +18,11 @@ class Game
      */
     private $logger;
 
-    public function __construct(Configuration $configuration, LoggerInterface $logger)
+    public function __construct(Configuration $configuration, LoggerInterface $logger, Dice $dice)
     {
         $this->configuration = $configuration;
         $this->applyConfiguration();
-        $this->dice = new Dice($configuration);
+        $this->dice = $dice;
         $this->logger = $logger;
     }
 
@@ -52,7 +52,7 @@ class Game
             for ($ii = 0; $ii < count($playerCards); $ii++) {
                 /** @var Card $playerCard */
                 $playerCard = $playerCards[$ii];
-                $player->flipEqualColorCard($playerCard, $colorDice);
+                $playerCard->flipEqualColorCard($playerCard, $colorDice);
                 if ($playerCard->getIsCovered()) {
                     echo $player->getName() . '`s ' . $playerCard . ' is covered' . PHP_EOL;
                 } else {

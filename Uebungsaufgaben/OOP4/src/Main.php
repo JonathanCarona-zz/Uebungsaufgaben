@@ -6,9 +6,9 @@ require 'autoload.php';
 $logger = new StandardOutLogger();
 $fileLogger = new FileLogger();
 
-$Alice = new Player('Alice', $logger);
-$Bob = new Player('Bob', $logger);
-$Carol = new Player('Carol', $logger);
+$Alice = new Player('Alice');
+$Bob = new Player('Bob');
+$Carol = new Player('Carol');
 
 $red = new Color('Red');
 $green = new Color('Green');
@@ -19,7 +19,8 @@ $playerArray = array($Alice, $Bob, $Carol);
 $colorArray = array($red, $green, $yellow, $blue);
 
 $configuration = new Configuration(2, $playerArray, $colorArray);
+$dice = new Dice($configuration);
 
-$game = new Game($configuration, $logger);
+$game = new Game($configuration, $logger, $dice);
 
 $game->playGame();

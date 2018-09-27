@@ -21,7 +21,7 @@ class PlayerTest extends TestCase
     {
         $this->logger = $this->createMock(StandardOutLogger::class);
         $this->color = $this->createMock(Color::class);
-        $this->player = new Player('Jonathan', $this->logger);
+        $this->player = new Player('Jonathan');
         $this->card = $this->createMock(Card::class);
     }
 
@@ -44,11 +44,28 @@ class PlayerTest extends TestCase
         $this->assertEquals($cardArray, $this->player->getCards());
     }
 
-    public function testFlipEqualColorCard() {
+    public function testGetAllFlippedCards()
+    {
+        $this->card->method('getIsCovered')->willReturn(true);
         $this->player->addToCards($this->card);
-        $this->card->method('getColor')->willReturn($this->color);
-        $this->card->expects($this->once())->method('setIsCovered')->with(true);
-        $this->player->flipEqualColorCard($this->card, $this->color);
-        $this->assertSame(true, $this->card->getIsCovered());
+        $expectedCardArray = array($this->card);
+        $this->assertSame($expectedCardArray, $this->player->getAllFlippedCards());
     }
+
+    public function testCheckIfAllCardsAreFlipped()
+    {
+        $this->card->method('getIsCovered')->willReturn(false);
+        $this->player->addToCards($this->card);
+        $this->assertSame(false, $this->player->checkIfAllCardsAreFlipped());
+
+        /** @var PHPUnit_Framework_MockObject_MockObject | Card $anotherCard */
+        $anotherCard = $this->createMock(Card::class);
+        $anotherCard->method('getIsCovered')->willReturn(true);
+        $anotherPlayer = new Player('David');
+        $anotherPlayer->addToCards($anotherCard);
+        $this->assertSame(true, $anotherPlayer->checkIfAllCardsAreFlipped());
+
+    }
+
+
 }

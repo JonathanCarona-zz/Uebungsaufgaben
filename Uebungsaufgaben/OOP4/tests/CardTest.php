@@ -19,6 +19,11 @@ class CardTest extends TestCase
         $this->card = new Card($this->color);
     }
 
+    public function testFlipEqualColorCard() {
+        $this->card->flipEqualColorCard($this->card, $this->color);
+        $this->assertSame(true, $this->card->getIsCovered());
+    }
+
     public function testGetColor() {
         $expectedColor = $this->createMock(Color::class);
         $this->assertEquals($expectedColor, $this->card->getColor());

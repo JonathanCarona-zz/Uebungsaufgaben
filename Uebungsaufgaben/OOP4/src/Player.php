@@ -35,14 +35,6 @@ class Player
 
 
 
-
-    public function flipEqualColorCard(Card $card, Color $color): void
-    {
-        if ($this->compareCard($color, $card)) {
-            $card->setIsCovered(true);
-        }
-    }
-
     public function getAllFlippedCards(): array
     {
         $flippedCardsArray = array();
@@ -53,20 +45,8 @@ class Player
                 array_push($flippedCardsArray, $card);
             }
         }
+        return $flippedCardsArray;
     }
-
-
-    private function compareCard(Color $color, Card $card): bool
-    {
-        $cardIsEqual = false;
-        /** @var Card $card */
-        if ($card->getColor() === $color) {
-            $cardIsEqual = true;
-        }
-        return $cardIsEqual;
-    }
-
-
     public function checkIfAllCardsAreFlipped(): bool
     {
         $allCardsAreFlipped = false;
