@@ -13,23 +13,18 @@ class Factory
         $this->configuration = $configuration;
     }
 
-    public function createDice(): Dice
+    private function createFileLogger(): FileLogger
     {
-        return new Dice($this->configuration);
+        return new FileLogger($this->configuration->getPathToLogfile());
     }
 
-    public function createFileLogger(): FileLogger
-    {
-        return new FileLogger();
-    }
-
-    public function createStandardOutLogger(): StandardOutLogger
+    private function createStandardOutLogger(): StandardOutLogger
     {
         return new StandardOutLogger();
     }
 
     public function createGame(): Game
     {
-        return new Game($this->configuration, $this->createStandardOutLogger(), $this->createDice());
+        return new Game($this->configuration, $this->createStandardOutLogger());
     }
 }

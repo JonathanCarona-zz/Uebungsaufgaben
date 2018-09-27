@@ -45,5 +45,10 @@ class Configuration
         return $this->confPossibleColors;
     }
 
+    public function getPathToLogfile(): string
+    {
+        return '/tmp/logfile.txt';
+    }
+
 
 }

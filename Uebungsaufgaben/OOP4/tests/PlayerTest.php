@@ -56,14 +56,14 @@ class PlayerTest extends TestCase
     {
         $this->card->method('getIsCovered')->willReturn(false);
         $this->player->addToCards($this->card);
-        $this->assertSame(false, $this->player->checkIfAllCardsAreFlipped());
+        $this->assertSame(false, $this->player->hasWon());
 
         /** @var PHPUnit_Framework_MockObject_MockObject | Card $anotherCard */
         $anotherCard = $this->createMock(Card::class);
         $anotherCard->method('getIsCovered')->willReturn(true);
         $anotherPlayer = new Player('David');
         $anotherPlayer->addToCards($anotherCard);
-        $this->assertSame(true, $anotherPlayer->checkIfAllCardsAreFlipped());
+        $this->assertSame(true, $anotherPlayer->hasWon());
 
     }
 

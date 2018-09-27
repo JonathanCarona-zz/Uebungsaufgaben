@@ -11,14 +11,25 @@ class FileLoggerTest extends TestCase
     /** @var FileLogger */
     private $fileLogger;
 
+    private $pathToLogfile;
+
     protected function setUp()
     {
-        $this->fileLogger = new FileLogger();
+        $this->pathToLogfile = '/tmp/unittest-filelogger.txt';
+
+        $this->fileLogger = new FileLogger($this->pathToLogfile);
+
+        file_put_contents($this->pathToLogfile, '');
     }
 
     public function testLog() {
-        file_put_contents('/tmp/logfile.txt', '');
+
         $this->fileLogger->log('Hallo');
-        $this->assertSame('Hallo', file_get_contents('/tmp/logfile.txt'));
+        $this->assertSame('Hallo', file_get_contents($this->pathToLogfile));
+    }
+
+    public function tearDown()
+    {
+        unlink($this->pathToLogfile);
     }
 }

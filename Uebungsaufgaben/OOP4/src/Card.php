@@ -14,29 +14,20 @@ class Card
 
     }
 
-    public function flipEqualColorCard(Card $card, Color $color): void
+    //TODO:
+
+    /**
+     * Spieler Fragt Karte nach Farbe
+     * Wenn Farbe dieselbe => Umdrehen
+     * -> 3 Methoden: getColor + turn() + isTurned()
+     */
+
+
+
+    public function turn(): void
     {
-        if ($this->compareCard($color, $card)) {
-            $card->setIsCovered(true);
-        }
+        $this->isCovered = true;
     }
-
-    private function compareCard(Color $color, Card $card): bool
-    {
-        $cardIsEqual = false;
-        /** @var Card $card */
-        if ($card->getColor() === $color) {
-            $cardIsEqual = true;
-        }
-        return $cardIsEqual;
-    }
-
-
-    public function setIsCovered(bool $isCovered): void
-    {
-        $this->isCovered = $isCovered;
-    }
-
 
 
     public function getColor(): Color

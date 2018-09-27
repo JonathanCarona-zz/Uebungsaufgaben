@@ -11,19 +11,19 @@ class Game
     private $players;
     /** @var Configuration */
     private $configuration;
-    /** @var Dice */
-    private $dice;
     /**
      * @var LoggerInterface
      */
     private $logger;
+    /** @var Player */
+    private $player;
+    /** @var bool  */
     private $gameOver = false;
 
-    public function __construct(Configuration $configuration, LoggerInterface $logger, Dice $dice)
+    public function __construct(Configuration $configuration, LoggerInterface $logger)
     {
         $this->configuration = $configuration;
         $this->applyConfiguration();
-        $this->dice = $dice;
         $this->logger = $logger;
     }
 
@@ -36,41 +36,16 @@ class Game
 
     public function playGame(): void
     {
-        for ($i = 0; $i < count($this->players); $i++) {
-            $player = $this->players[$i];
-            $this->shuffleCards($player);
-            sleep(1);
+        foreach ($this->players as $this->player) {
+            $this->shuffleCards($this->player);
         }
-
-        while (!$this->gameOver) {
-
-            for ($i = 0; $i < count($this->players); $i++) {
-                /** @var Player $player */
-                $player = $this->players[$i];
-                $colorDice = $this->dice->roll();
-                echo 'The dice color is ' . $colorDice . PHP_EOL;
-                sleep(1);
-                /** @var array | Card $playerCards */
-                $playerCards = $player->getCards();
-                for ($ii = 0; $ii < count($playerCards); $ii++) {
-                    /** @var Card $playerCard */
-                    $playerCard = $playerCards[$ii];
-                    $playerCard->flipEqualColorCard($playerCard, $colorDice);
-                    if ($playerCard->getIsCovered()) {
-                        echo $player->getName() . '`s ' . $playerCard . ' is covered' . PHP_EOL;
-                    } else {
-                        echo $player->getName() . '`s ' . $playerCard . ' is still active' . PHP_EOL;
-                    }
-                    sleep(1);
-                }
-
-                if ($player->checkIfAllCardsAreFlipped()) {
-                    echo $player->getName() . ' has won the game';
+        while(!$this->gameOver) {
+            foreach ($this->players as $this->player) {
+                $this->player->makeTurn($this->configuration);
+                if ($this->player->hasWon()) {
                     $this->gameOver = true;
-                    exit();
+                    break;
                 }
-
-                echo PHP_EOL;
             }
         }
     }
@@ -85,6 +60,7 @@ class Game
             $shuffleCard = new Card($cardColor);
             $player->addToCards($shuffleCard);
             $this->logger->log($player->getName() . ' gets a ' . $shuffleCard . PHP_EOL);
+            sleep(1);
         }
         echo PHP_EOL;
     }
