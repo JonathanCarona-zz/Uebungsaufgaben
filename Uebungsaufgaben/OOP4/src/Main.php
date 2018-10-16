@@ -18,7 +18,6 @@ $colorArray = array($red, $green, $yellow, $blue);
 
 $configuration = new Configuration(2, $playerArray, $colorArray);
 
-
 $factory = new Factory($configuration);
 
 $game = $factory->createGame();
