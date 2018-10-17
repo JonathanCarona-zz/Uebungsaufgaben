@@ -33,7 +33,7 @@ class Configuration
         if (count($this->iniFileSettings['colors']) >= $this->iniFileSettings['cards']['numberOfCards'])  {
             $this->confNumberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
         } else {
-            throw new Exception('There cannot be less colors than number of cards.');
+            throw new Exception('The number of colors must be equal or greater than the number of cards.');
         }
 
 

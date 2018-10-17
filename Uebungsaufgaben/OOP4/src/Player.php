@@ -55,25 +55,19 @@ class Player
         $this->logger->log(PHP_EOL);
     }
 
-    private function printAllStateOfCards()
+    private function printAllStateOfCards(): void
     {
         /** @var Card $card */
         foreach ($this->cards as $card) {
-            if ($card->isTurned()) {
-                $this->logger->log($this->name . ': My ' . $card . ' is covered' . PHP_EOL);
-            } else {
-                $this->logger->log($this->name . ': My ' . $card . ' is still active' . PHP_EOL);
-            }
+            $this->logger->log(($card->isTurned() ?
+                $this->name . ': My ' . $card . ' is covered' . PHP_EOL :
+                $this->name . ': My ' . $card . ' is still active' . PHP_EOL));
         }
     }
 
     private function isTheSameColor(Color $color, Card $card): bool
     {
-        $cardIsEqual = false;
-        if ($card->getColor() === $color) {
-            $cardIsEqual = true;
-        }
-        return $cardIsEqual;
+        return ($card->getColor() === $color ? true : false);
     }
 
     private function flipEqualColorCard(Color $color): void
@@ -85,9 +79,6 @@ class Player
             }
         }
     }
-
-
-
 
     public function hasWon(): bool
     {
