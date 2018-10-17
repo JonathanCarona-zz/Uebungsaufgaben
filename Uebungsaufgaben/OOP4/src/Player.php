@@ -5,7 +5,7 @@ class Player
 {
     /** @var string */
     private $name;
-    /** @var array */
+    /** @var Card[] */
     private $cards;
     /**
      * @var LoggerInterface
@@ -83,8 +83,10 @@ class Player
     public function hasWon(): bool
     {
         foreach ($this->cards as $card) {
-            $allCardsAreFlipped = (!$card->isTurned() ? false : true);
+            if (!$card->isTurned()) {
+                return false;
+            }
         }
-        return $allCardsAreFlipped;
+        return true;
     }
 }

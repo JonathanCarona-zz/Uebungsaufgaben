@@ -17,7 +17,7 @@ class Game
     private $logger;
     /** @var Player */
     private $player;
-    /** @var bool  */
+    /** @var bool */
     private $gameOver = false;
     /** @var Dice */
     private $dice;
@@ -50,7 +50,7 @@ class Game
         foreach ($this->players as $this->player) {
             $this->giveRandomCardsToPlayer($this->player);
         }
-        while(!$this->gameOver) {
+        while (!$this->gameOver) {
             foreach ($this->players as $this->player) {
                 $this->player->makeTurn($this->dice);
                 $this->gameDelayer->delay(1);
@@ -67,24 +67,16 @@ class Game
     {
         $possibleColors = $this->configuration->getConfPossibleColors();
         for ($playerCardCount = count($player->getCards());
-             $playerCardCount < $this->numberOfCards;
-             ) {
+             $playerCardCount < $this->numberOfCards;) {
             $intCardColor = rand(0, count($possibleColors) - 1);
             $cardColor = $possibleColors[$intCardColor];
-            $playerCards = $player->getCards();
-            $playerCardsColor = array();
-            /** @var Card $playerCard */
-            foreach ($playerCards as $playerCard) {
-                $playerCardsColor[] = $playerCard->getColor();
-            }
-            if (!
-            in_array($cardColor, $playerCardsColor)) {
-                $shuffleCard = new Card($cardColor);
-                $player->addToCards($shuffleCard);
-                $this->logger->log($player->getName() . ' gets a ' . $shuffleCard . PHP_EOL);
-                $playerCardCount++;
-                $this->gameDelayer->delay(1);
-            }
+            unset($possibleColors[$intCardColor]);
+            $possibleColors = array_values($possibleColors);
+            $shuffleCard = new Card($cardColor);
+            $player->addToCards($shuffleCard);
+            $this->logger->log($player->getName() . ' gets a ' . $shuffleCard . PHP_EOL);
+            $playerCardCount++;
+            $this->gameDelayer->delay(1);
         }
         $this->logger->log(PHP_EOL);
     }

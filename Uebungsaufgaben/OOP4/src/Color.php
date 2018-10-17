@@ -16,6 +16,13 @@ class Color
 
     }
 
+    public function getColor(): string
+    {
+        return $this->color;
+    }
+
+
+
     public function __toString(): string
     {
         return $this->color;

@@ -17,7 +17,7 @@ class Configuration
     /** @var array */
     private $iniFileSettings = array();
 
-    public function __construct($logger)
+    public function __construct(LoggerInterface $logger)
     {
         $this->logger = $logger;
         $this->iniFileSettings = parse_ini_file('configuration.ini', true);

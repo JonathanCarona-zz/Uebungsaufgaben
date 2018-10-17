@@ -1,6 +1,5 @@
 <?php
-$iniArray = parse_ini_file('configuration.ini', true);
 
-$players = $iniArray['players'];
+$colorArray = array('Red', 'Yellow', 'Green');
 
-echo $players['alice'];
+var_dump($colorArray);
