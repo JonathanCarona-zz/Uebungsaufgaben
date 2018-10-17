@@ -82,15 +82,8 @@ class Player
 
     public function hasWon(): bool
     {
-        $allCardsAreFlipped = false;
-
         foreach ($this->cards as $card) {
-            if (!$card->isTurned()) {
-                $allCardsAreFlipped = false;
-                break;
-            } else {
-                $allCardsAreFlipped = true;
-            }
+            $allCardsAreFlipped = (!$card->isTurned() ? false : true);
         }
         return $allCardsAreFlipped;
     }
