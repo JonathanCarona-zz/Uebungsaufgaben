@@ -66,13 +66,24 @@ class Game
     private function giveRandomCardsToPlayer(Player $player): void
     {
         $possibleColors = $this->configuration->getConfPossibleColors();
-        for ($i = 0; $i < $this->numberOfCards; $i++) {
+        for ($playerCardCount = count($player->getCards());
+             $playerCardCount < $this->numberOfCards;
+             $playerCardCount++) {
             $intCardColor = rand(0, count($possibleColors) - 1);
             $cardColor = $possibleColors[$intCardColor];
-            $shuffleCard = new Card($cardColor);
-            $player->addToCards($shuffleCard);
-            $this->logger->log($player->getName() . ' gets a ' . $shuffleCard . PHP_EOL);
-            $this->gameDelayer->delay(1);
+            $playerCards = $player->getCards();
+            $playerCardsColor = array();
+            /** @var Card $playerCard */
+            foreach ($playerCards as $playerCard) {
+                $playerCardsColor[] = $playerCard->getColor();
+            }
+            if (!
+            in_array($cardColor, $playerCardsColor)) {
+                $shuffleCard = new Card($cardColor);
+                $player->addToCards($shuffleCard);
+                $this->logger->log($player->getName() . ' gets a ' . $shuffleCard . PHP_EOL);
+                $this->gameDelayer->delay(1);
+            }
         }
         $this->logger->log(PHP_EOL);
     }
