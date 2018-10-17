@@ -19,12 +19,22 @@ class Game
     private $player;
     /** @var bool  */
     private $gameOver = false;
+    /** @var Dice */
+    private $dice;
+    /**
+     * @var GameDelayerInterface
+     */
+    private $gameDelayer;
 
-    public function __construct(Configuration $configuration, LoggerInterface $logger)
+    public function __construct(
+        Configuration $configuration,
+        Dice $dice,
+        GameDelayerInterface $gameDelayer)
     {
         $this->configuration = $configuration;
         $this->applyConfiguration();
-        $this->logger = $logger;
+        $this->dice = $dice;
+        $this->gameDelayer = $gameDelayer;
     }
 
     private function applyConfiguration(): void
@@ -32,16 +42,17 @@ class Game
         $this->numberOfCards = $this->configuration->getConfNumberOfCards();
         $this->numberOfPlayers = $this->configuration->getConfNumberOfPlayers();
         $this->players = $this->configuration->getConfPlayers();
+        $this->logger = $this->configuration->getLogger();
     }
 
     public function playGame(): void
     {
         foreach ($this->players as $this->player) {
-            $this->shuffleCards($this->player);
+            $this->giveRandomCardsToPlayer($this->player);
         }
         while(!$this->gameOver) {
             foreach ($this->players as $this->player) {
-                $this->player->makeTurn($this->configuration);
+                $this->player->makeTurn($this->configuration, $this->dice);
                 if ($this->player->hasWon()) {
                     $this->gameOver = true;
                     break;
@@ -51,7 +62,7 @@ class Game
     }
 
 
-    private function shuffleCards(Player $player): void
+    private function giveRandomCardsToPlayer(Player $player): void
     {
         $possibleColors = $this->configuration->getConfPossibleColors();
         for ($i = 0; $i < $this->numberOfCards; $i++) {
@@ -60,8 +71,8 @@ class Game
             $shuffleCard = new Card($cardColor);
             $player->addToCards($shuffleCard);
             $this->logger->log($player->getName() . ' gets a ' . $shuffleCard . PHP_EOL);
-            sleep(1);
+            $this->gameDelayer->delay(1);
         }
-        echo PHP_EOL;
+        $this->logger->log(PHP_EOL);
     }
 }

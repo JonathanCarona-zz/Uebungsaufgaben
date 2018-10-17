@@ -8,7 +8,7 @@ class Factory
      */
     private $configuration;
 
-    public function __construct (Configuration $configuration)
+    public function __construct(Configuration $configuration)
     {
         $this->configuration = $configuration;
     }
@@ -23,8 +23,18 @@ class Factory
         return new StandardOutLogger();
     }
 
+    private function createDice(): Dice
+    {
+        return new Dice();
+    }
+
     public function createGame(): Game
     {
-        return new Game($this->configuration, $this->createStandardOutLogger());
+        return new Game($this->configuration, $this->createDice(), $this->createSleepGameDelayer());
+    }
+
+    public function createSleepGameDelayer(): SleepGameDelayer
+    {
+        return new SleepGameDelayer();
     }
 }

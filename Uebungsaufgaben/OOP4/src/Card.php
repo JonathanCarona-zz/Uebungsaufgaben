@@ -33,7 +33,7 @@ class Card
     }
 
 
-    public function getIsCovered(): bool
+    public function isTurned(): bool
     {
         return $this->isCovered;
     }

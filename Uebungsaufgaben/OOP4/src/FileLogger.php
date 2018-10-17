@@ -16,7 +16,6 @@ class FileLogger implements LoggerInterface
 
     public function log(string $message): void
     {
-        //TODO: Pfad als Dependency
         file_put_contents($this->pathToLogfile, $message, FILE_APPEND);
     }
 }

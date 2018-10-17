@@ -19,7 +19,6 @@ class Player
     {
         $this->name = $name;
         $this->cards = array();
-
         $this->logger = $logger;
     }
 
@@ -36,19 +35,19 @@ class Player
 
     public function addToCards(Card $card): void
     {
-        array_push($this->cards, $card);
+        $this->cards[] = $card;
     }
 
-    public function makeTurn(Configuration $configuration): void
+    public function makeTurn(Configuration $configuration, Dice $dice): void
     {
         // Nimm Würfel
         // Würfle
         // Prüfe in meinem Kartendeck, ob Karte gedreht werden kann
         // Beende Spiel, wenn alle Karten aufgedeckt
-        $diceColor = $this->roll($configuration);
+        $diceColor = $this->roll($configuration, $dice);
         $this->logger->log($this->name . ' has rolled the color ' . $diceColor . PHP_EOL);
         $this->flipEqualColorCard($diceColor);
-        $this->printIfAllCardsIfTheyAreCovered();
+        $this->printAllStateOfCards();
         $this->hasWon = $this->hasWon();
         if ($this->hasWon) {
             $this->logger->log($this->name . ' has won the game' . PHP_EOL);
@@ -56,16 +55,15 @@ class Player
         $this->logger->log(PHP_EOL);
     }
 
-    private function printIfAllCardsIfTheyAreCovered()
+    private function printAllStateOfCards()
     {
         /** @var Card $card */
         foreach ($this->cards as $card) {
-            if ($card->getIsCovered()) {
+            if ($card->isTurned()) {
                 $this->logger->log($this->name . ': My ' . $card . ' is covered' . PHP_EOL);
             } else {
                 $this->logger->log($this->name . ': My ' . $card . ' is still active' . PHP_EOL);
             }
-            sleep(1);
         }
     }
 
@@ -88,34 +86,27 @@ class Player
         }
     }
 
-    private function roll(Configuration $configuration): Color
+    private function roll(Configuration $configuration, Dice $dice): Color
     {
         $possibleColors = $configuration->getConfPossibleColors();
         $intDiceColor = rand(0, count($possibleColors) - 1);
-        return $possibleColors[$intDiceColor];
+        $dice->setColor($possibleColors[$intDiceColor]);
+        return $dice->getColor();
     }
 
 
     public function hasWon(): bool
     {
         $allCardsAreFlipped = false;
-        $countAllFlippedCards = 0;
+
         foreach ($this->cards as $card) {
-            if ($card->getIsCovered()) {
-                $countAllFlippedCards++;
+            if (!$card->isTurned()) {
+                $allCardsAreFlipped = false;
+                break;
+            } else {
+                $allCardsAreFlipped = true;
             }
-        }
-        if ($countAllFlippedCards == count($this->cards)) {
-            $allCardsAreFlipped = true;
         }
         return $allCardsAreFlipped;
     }
-
-
-    public function isHasWon(): bool
-    {
-        return $this->hasWon;
-    }
-
-
 }
