@@ -25,7 +25,7 @@ class Factory
 
     private function createDice(): Dice
     {
-        return new Dice();
+        return new Dice($this->configuration);
     }
 
     public function createGame(): Game

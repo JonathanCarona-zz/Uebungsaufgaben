@@ -38,13 +38,13 @@ class Player
         $this->cards[] = $card;
     }
 
-    public function makeTurn(Configuration $configuration, Dice $dice): void
+    public function makeTurn(Dice $dice): void
     {
         // Nimm Würfel
         // Würfle
         // Prüfe in meinem Kartendeck, ob Karte gedreht werden kann
         // Beende Spiel, wenn alle Karten aufgedeckt
-        $diceColor = $this->roll($configuration, $dice);
+        $diceColor = $dice->roll();
         $this->logger->log($this->name . ' has rolled the color ' . $diceColor . PHP_EOL);
         $this->flipEqualColorCard($diceColor);
         $this->printAllStateOfCards();
@@ -86,13 +86,7 @@ class Player
         }
     }
 
-    private function roll(Configuration $configuration, Dice $dice): Color
-    {
-        $possibleColors = $configuration->getConfPossibleColors();
-        $intDiceColor = rand(0, count($possibleColors) - 1);
-        $dice->setColor($possibleColors[$intDiceColor]);
-        return $dice->getColor();
-    }
+
 
 
     public function hasWon(): bool

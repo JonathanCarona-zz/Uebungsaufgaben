@@ -6,7 +6,7 @@ class Card
     /** @var Color */
     private $color;
     /** @var bool */
-    private $isCovered = false;
+    private $isTurned = false;
 
     public function __construct(Color $color)
     {
@@ -23,7 +23,7 @@ class Card
 
     public function turn(): void
     {
-        $this->isCovered = true;
+        $this->isTurned = true;
     }
 
 
@@ -35,7 +35,7 @@ class Card
 
     public function isTurned(): bool
     {
-        return $this->isCovered;
+        return $this->isTurned;
     }
 
     public function __toString(): string

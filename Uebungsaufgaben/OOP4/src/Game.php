@@ -52,7 +52,7 @@ class Game
         }
         while(!$this->gameOver) {
             foreach ($this->players as $this->player) {
-                $this->player->makeTurn($this->configuration, $this->dice);
+                $this->player->makeTurn($this->dice);
                 $this->gameDelayer->delay(1);
                 if ($this->player->hasWon()) {
                     $this->gameOver = true;
@@ -68,7 +68,7 @@ class Game
         $possibleColors = $this->configuration->getConfPossibleColors();
         for ($playerCardCount = count($player->getCards());
              $playerCardCount < $this->numberOfCards;
-             $playerCardCount++) {
+             ) {
             $intCardColor = rand(0, count($possibleColors) - 1);
             $cardColor = $possibleColors[$intCardColor];
             $playerCards = $player->getCards();
@@ -82,6 +82,7 @@ class Game
                 $shuffleCard = new Card($cardColor);
                 $player->addToCards($shuffleCard);
                 $this->logger->log($player->getName() . ' gets a ' . $shuffleCard . PHP_EOL);
+                $playerCardCount++;
                 $this->gameDelayer->delay(1);
             }
         }
