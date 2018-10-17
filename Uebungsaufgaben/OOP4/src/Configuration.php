@@ -15,13 +15,14 @@ class Configuration
     /** @var LoggerInterface */
     private $logger;
     /** @var array */
-    private $iniFileSettings;
+    private $iniFileSettings = array();
 
     public function __construct($logger)
     {
         $this->logger = $logger;
         $this->iniFileSettings = parse_ini_file('configuration.ini', true);
         $this->applyIniSettings();
+
         $this->confNumberOfPlayers = count($this->confPlayers);
     }
 
@@ -29,7 +30,14 @@ class Configuration
     {
         $this->createPlayersFromIniFile();
         $this->createColorsFromIniFile();
-        $this->confNumberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
+        if (count($this->iniFileSettings['colors']) >= $this->iniFileSettings['cards']['numberOfCards'])  {
+            $this->confNumberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
+        } else {
+            throw new Exception('There cannot be less colors than number of cards.');
+        }
+
+
+
     }
 
     private function createPlayersFromIniFile(): void
