@@ -53,6 +53,7 @@ class Game
         while(!$this->gameOver) {
             foreach ($this->players as $this->player) {
                 $this->player->makeTurn($this->configuration, $this->dice);
+                $this->gameDelayer->delay(1);
                 if ($this->player->hasWon()) {
                     $this->gameOver = true;
                     break;
