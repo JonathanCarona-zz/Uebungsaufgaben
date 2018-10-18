@@ -45,14 +45,13 @@ class Player
         // Prüfe in meinem Kartendeck, ob Karte gedreht werden kann
         // Beende Spiel, wenn alle Karten aufgedeckt
         $diceColor = $dice->roll();
-        $this->logger->log($this->name . ' has rolled the color ' . $diceColor . PHP_EOL);
+        $this->logger->log($this->name . ' has rolled the color ' . $diceColor);
         $this->flipEqualColorCard($diceColor);
         $this->printAllStateOfCards();
         $this->hasWon = $this->hasWon();
         if ($this->hasWon) {
-            $this->logger->log($this->name . ' has won the game' . PHP_EOL);
+            $this->logger->log($this->name . ' has won the game');
         }
-        $this->logger->log(PHP_EOL);
     }
 
     private function printAllStateOfCards(): void
@@ -60,8 +59,8 @@ class Player
         /** @var Card $card */
         foreach ($this->cards as $card) {
             $this->logger->log(($card->isTurned() ?
-                $this->name . ': My ' . $card . ' is covered' . PHP_EOL :
-                $this->name . ': My ' . $card . ' is still active' . PHP_EOL));
+                $this->name . ': My ' . $card . ' is covered' :
+                $this->name . ': My ' . $card . ' is still active'));
         }
     }
 

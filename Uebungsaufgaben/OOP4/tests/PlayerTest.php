@@ -19,9 +19,9 @@ class PlayerTest extends TestCase
 
     protected function setUp()
     {
-        $this->logger = $this->createMock(StandardOutLogger::class);
+        $this->logger = $this->createMock(LoggerInterface::class);
         $this->color = $this->createMock(Color::class);
-        $this->player = new Player('Jonathan');
+        $this->player = new Player('Jonathan', $this->logger);
         $this->card = $this->createMock(Card::class);
     }
 
@@ -44,28 +44,48 @@ class PlayerTest extends TestCase
         $this->assertEquals($cardArray, $this->player->getCards());
     }
 
-    public function testGetAllFlippedCards()
+    public function testHasWonTrue()
     {
-        $this->card->method('getIsCovered')->willReturn(true);
         $this->player->addToCards($this->card);
-        $expectedCardArray = array($this->card);
-        $this->assertSame($expectedCardArray, $this->player->getAllFlippedCards());
+        $this->card->method('isTurned')->willReturn(true);
+        $this->assertEquals(true, $this->player->hasWon());
     }
 
-    public function testCheckIfAllCardsAreFlipped()
+    public function testHasWonFalse()
     {
-        $this->card->method('getIsCovered')->willReturn(false);
         $this->player->addToCards($this->card);
-        $this->assertSame(false, $this->player->hasWon());
-
-        /** @var PHPUnit_Framework_MockObject_MockObject | Card $anotherCard */
-        $anotherCard = $this->createMock(Card::class);
-        $anotherCard->method('getIsCovered')->willReturn(true);
-        $anotherPlayer = new Player('David');
-        $anotherPlayer->addToCards($anotherCard);
-        $this->assertSame(true, $anotherPlayer->hasWon());
-
+        $this->card->method('isTurned')->willReturn(false);
+        $this->assertEquals(false, $this->player->hasWon());
     }
 
+    public function testMakeTurn()
+    {
+        $this->card->method('getColor')->willReturn($this->color);
+        $this->card->method('__toString')->willReturn(' green Card ');
+//        $this->logger
+//            ->expects($this->exactly(2))
+//            ->method('log')
+//            ->withConsecutive(
+//                ['Jonathan has rolled the color Green'],
+//                ['Jonathan has won the game']
+//            );
+        $this->logger
+            ->expects($this->exactly(2))
+            ->method('log')
+            ->withConsecutive(
+                ['Jonathan has rolled the color Green'],
+                [$this->player->getName() . ': My ' . $this->card . ' is still active']
+            );
 
+        $dice = $this->createMock(Dice::class);
+        $dice->method('roll')->willReturn($this->color);
+        $this->color
+            ->expects($this->once())
+            ->method('__toString')
+            ->willReturn('Green');
+        $this->card->method('isTurned')->willReturn(false);
+        $this->player->addToCards($this->card);
+        $this->player->makeTurn($dice);
+        $this->assertEquals(false, $this->player->hasWon());
+    }
 }
