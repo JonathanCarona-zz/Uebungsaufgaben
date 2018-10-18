@@ -22,7 +22,4 @@ class Dice
         return $this->color;
     }
 
-
-
-
 }
