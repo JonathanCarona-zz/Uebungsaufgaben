@@ -16,7 +16,8 @@ class ColorTest extends TestCase
         $this->color = new Color('Red');
     }
 
-    public function testToString() {
-        $this->assertSame('Red', (string) $this->color);
+    public function testToString()
+    {
+        $this->assertSame('Red', (string)$this->color);
     }
 }

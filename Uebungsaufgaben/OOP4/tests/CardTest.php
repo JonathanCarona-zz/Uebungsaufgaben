@@ -20,9 +20,9 @@ class CardTest extends TestCase
     }
 
     public function testTurn() {
-        $this->assertSame(false, $this->card->getIsCovered());
+        $this->assertSame(false, $this->card->isTurned());
         $this->card->turn();
-        $this->assertSame(true, $this->card->getIsCovered());
+        $this->assertSame(true, $this->card->isTurned());
     }
 
     public function testGetColor() {
@@ -30,8 +30,8 @@ class CardTest extends TestCase
         $this->assertEquals($expectedColor, $this->card->getColor());
     }
 
-    public function testGetIsCovered() {
-        $this->assertSame(false, $this->card->GetIsCovered());
+    public function testIsTurned() {
+        $this->assertSame(false, $this->card->isTurned());
     }
 
     public function testToString() {
