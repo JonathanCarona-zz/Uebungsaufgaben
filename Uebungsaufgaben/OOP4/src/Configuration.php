@@ -6,69 +6,45 @@ class Configuration
 
     /** @var int */
     private $confNumberOfCards;
-    /** @var int */
-    private $confNumberOfPlayers;
-    /** @var array */
-    private $confPlayers = array();
     /** @var array */
     private $confPossibleColors = array();
     /** @var LoggerInterface */
     private $logger;
     /** @var array */
     private $iniFileSettings = array();
+    /**
+     * @var IniFileParser
+     */
+    private $iniFileParser;
+    /** @var array */
+    private $possibleColors;
 
-    public function __construct(LoggerInterface $logger)
+    public function __construct(LoggerInterface $logger, IniFileParser $iniFileParser)
     {
         $this->logger = $logger;
-        $this->iniFileSettings = parse_ini_file('configuration.ini', true);
+        $this->iniFileParser = $iniFileParser;
+        $this->iniFileSettings = $this->iniFileParser->parse();
         $this->applyIniSettings();
-
-        $this->confNumberOfPlayers = count($this->confPlayers);
     }
 
-    private function applyIniSettings()
+    private function applyIniSettings(): void
     {
-        $this->createPlayersFromIniFile();
-        $this->createColorsFromIniFile();
         if (count($this->iniFileSettings['colors']) >= $this->iniFileSettings['cards']['numberOfCards'])  {
             $this->confNumberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
         } else {
             throw new Exception('The number of colors must be equal or greater than the number of cards.');
         }
-
-
-
+        $this->confPossibleColors = $this->iniFileSettings['colors'];
     }
 
-    private function createPlayersFromIniFile(): void
+    public function getIniFileSettings(): array
     {
-        $playerNamesArray = $this->iniFileSettings['players'];
-        foreach ($playerNamesArray as $playerName) {
-            $this->confPlayers[] = new Player($playerName, $this->logger);
-        }
-    }
-
-    private function createColorsFromIniFile(): void
-    {
-        $colorArray = $this->iniFileSettings['colors'];
-        foreach ($colorArray as $color) {
-            $this->confPossibleColors[] = new Color($color);
-        }
+        return $this->iniFileSettings;
     }
 
     public function getConfNumberOfCards(): int
     {
         return $this->confNumberOfCards;
-    }
-
-    public function getConfNumberOfPlayers(): int
-    {
-        return $this->confNumberOfPlayers;
-    }
-
-    public function getConfPlayers(): array
-    {
-        return $this->confPlayers;
     }
 
     public function getLogger(): LoggerInterface
@@ -77,7 +53,7 @@ class Configuration
     }
 
 
-    public function getConfPossibleColors(): array
+    public function getStringPossibleColors(): array
     {
         return $this->confPossibleColors;
     }
@@ -85,5 +61,16 @@ class Configuration
     public function getPathToLogfile(): string
     {
         return '/tmp/logfile.txt';
+    }
+
+
+    public function addToPossibleColors(array $colors): void {
+        $this->possibleColors = $colors;
+    }
+
+
+    public function getPossibleColors(): array
+    {
+        return $this->possibleColors;
     }
 }

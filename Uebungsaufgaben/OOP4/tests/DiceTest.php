@@ -15,6 +15,7 @@ class DiceTest extends TestCase
 
     protected function setUp()
     {
+        $color = $this->createMock(Color::class);
         $this->configuration = $this->createMock(Configuration::class);
         $this->dice = new Dice($this->configuration);
     }
@@ -23,7 +24,7 @@ class DiceTest extends TestCase
     {
         $color = $this->createMock(Color::class);
         $colorArray[] = $color;
-        $this->configuration->method('getConfPossibleColors')->willReturn($colorArray);
+        $this->configuration->method('getPossibleColors')->willReturn($colorArray);
         $this->assertEquals($color, $this->dice->roll());
     }
 

@@ -14,12 +14,6 @@ class Card
 
     }
 
-    //TODO:
-    /**
-     * Spieler Fragt Karte nach Farbe
-     * Wenn Farbe dieselbe => Umdrehen
-     * -> 3 Methoden: getColor + turn() + isCovered()
-     */
 
     public function turn(): void
     {

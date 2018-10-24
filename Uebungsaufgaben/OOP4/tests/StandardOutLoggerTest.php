@@ -18,7 +18,7 @@ class StandardOutLoggerTest extends TestCase
 
     public function testLog()
     {
-        $this->expectOutputString('Hallo');
+        $this->expectOutputString('Hallo'. PHP_EOL);
         $this->standardOutLogger->log('Hallo');
     }
 

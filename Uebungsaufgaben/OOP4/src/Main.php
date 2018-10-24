@@ -4,9 +4,11 @@ require 'autoload.php';
 
 $logger = new StandardOutLogger();
 
-$configuration = new Configuration($logger);
+$iniFileParser = new IniFileParser('configuration.ini');
 
+$configuration = new Configuration($logger, $iniFileParser);
 $factory = new Factory($configuration);
+
 
 $game = $factory->createGame();
 

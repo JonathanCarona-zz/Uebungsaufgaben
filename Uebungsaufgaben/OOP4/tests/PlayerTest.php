@@ -77,6 +77,7 @@ class PlayerTest extends TestCase
                 [$this->player->getName() . ': My ' . $this->card . ' is still active']
             );
 
+
         $dice = $this->createMock(Dice::class);
         $dice->method('roll')->willReturn($this->color);
         $this->color
