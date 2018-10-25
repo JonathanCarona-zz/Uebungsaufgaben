@@ -70,13 +70,11 @@ class ConfigurationTest extends TestCase
         $this->assertEquals($this->iniFileSettings['colors'], $this->configuration->getStringPossibleColors());
     }
 
-
     public function testGetPossibleColorsAndAddToPossibleColors()
     {
         $this->configuration->addToPossibleColors($this->colorArray);
         $this->assertEquals($this->colorArray, $this->configuration->getPossibleColors());
     }
-
 
     public function testExceptionIfNumberOfCardsIsLowerThanNumberOfColors()
     {
@@ -100,4 +98,8 @@ class ConfigurationTest extends TestCase
         $configuration = new Configuration($this->logger, $inifileParser);
     }
 
+    public function testGetPathToLogFile()
+    {
+        $this->assertEquals('/tmp/logfile.txt', $this->configuration->getPathToLogfile());
+    }
 }

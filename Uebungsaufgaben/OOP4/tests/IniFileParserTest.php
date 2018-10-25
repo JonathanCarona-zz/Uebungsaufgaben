@@ -11,7 +11,7 @@ class IniFileParserTest extends TestCase
 
     protected function setUp()
     {
-        $this->iniFileParser = new IniFileParser('TestConfiguration.ini');
+        $this->iniFileParser = new IniFileParser('/home/dev/PhpstormProjects/Uebungsaufgaben/OOP4/tests/TestConfiguration.ini');
     }
 
     public function testParse()
@@ -20,7 +20,5 @@ class IniFileParserTest extends TestCase
             'test' => 'test'
         );
         $this->assertEquals($arrayTest, $this->iniFileParser->parse()['test']);
-
     }
-
 }

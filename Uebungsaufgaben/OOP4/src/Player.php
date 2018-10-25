@@ -64,6 +64,7 @@ class Player
         }
     }
 
+
     private function isTheSameColor(Color $color, Card $card): bool
     {
         return ($card->getColor() === $color ? true : false);

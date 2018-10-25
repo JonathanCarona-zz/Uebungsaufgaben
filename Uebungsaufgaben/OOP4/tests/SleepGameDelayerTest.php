@@ -19,7 +19,8 @@ class SleepGameDelayerTest extends TestCase
         $this->sleepGameDelayer->delay(3);
         $time_post = microtime(true);
         $exec_time = $time_post - $time_pre;
+        $isOver3Seconds = ($exec_time >= 3) ? true : false;
 
-        $this->assertTrue(($exec_time >= 3) ? true : false);
+        $this->assertEquals(true, $isOver3Seconds);
     }
 }
