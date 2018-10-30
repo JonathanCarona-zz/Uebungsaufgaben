@@ -20,7 +20,7 @@ class ColorTest extends TestCase
         $this->configuration = $this->createMock(Configuration::class);
         $this->colorArray = array(
             'colors' => array(
-                'red' => 'Red'
+                'Red' => 'Red'
             )
         );
         $this->configuration->method('getIniFileSettings')->willReturn($this->colorArray);
@@ -34,10 +34,14 @@ class ColorTest extends TestCase
     {
         $this->expectException(Exception::class);
         $this->expectExceptionMessage('The color is not valid');
-        $color = new Color($input, $this->configuration);
-        $this->assertEquals(true, true);
+        $this->color = new Color($input, $this->configuration);
     }
 
+    public function testColorCanBeAsked(): void
+    {
+
+        $this->assertEquals('Red', $this->color->getColor());
+    }
 
 
     public function provideInvalidColorNames(): array
@@ -49,7 +53,7 @@ class ColorTest extends TestCase
         ];
     }
 
-    public function testToString()
+    public function testColorWillBeCastedToString()
     {
         $this->assertSame('Red', (string)$this->color);
     }

@@ -15,7 +15,7 @@ class Factory
 
     private function createDice(): Dice
     {
-        return new Dice($this->configuration);
+        return new Dice($this->configuration, $this);
     }
 
     public function createGame(): Game
@@ -39,11 +39,11 @@ class Factory
         return $playerArray;
     }
 
-    public function createColor(String $color, Configuration $configuration): Color {
-        return new Color($color, $configuration);
+    public function createColor(String $color): Color {
+        return new Color($color, $this->configuration);
     }
 
-    public function createCard(Color $color): Card {
-        return new Card($color);
+    public function createCard(string $color): Card {
+        return new Card($this->createColor($color));
     }
 }

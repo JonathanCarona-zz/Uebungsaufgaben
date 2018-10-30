@@ -11,8 +11,6 @@ class Player
      * @var LoggerInterface
      */
     private $logger;
-    /** @var bool */
-    private $hasWon = false;
 
 
     public function __construct(string $name, LoggerInterface $logger)
@@ -48,8 +46,8 @@ class Player
         $this->logger->log($this->name . ' has rolled the color ' . $diceColor);
         $this->flipEqualColorCard($diceColor);
         $this->printAllStateOfCards();
-        $this->hasWon = $this->hasWon();
-        if ($this->hasWon) {
+        $hasWon = $this->hasWon();
+        if ($hasWon) {
             $this->logger->log($this->name . ' has won the game');
         }
     }
@@ -67,7 +65,8 @@ class Player
 
     private function isTheSameColor(Color $color, Card $card): bool
     {
-        return ($card->getColor() === $color ? true : false);
+        $cardColor = $card->getColor();
+        return ($cardColor->getColor() === $color->getColor() ? true : false);
     }
 
     private function flipEqualColorCard(Color $color): void

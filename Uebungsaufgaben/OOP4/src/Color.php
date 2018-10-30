@@ -5,20 +5,14 @@ class Color
 {
     /** @var string */
     private $color;
-    /** @var Configuration */
-    private $configuration;
-    /** @var array */
-    private $iniSettings;
 
     public function __construct(string $color, Configuration $configuration)
     {
-        $this->configuration = $configuration;
-        $this->iniSettings = $this->configuration->getIniFileSettings()['colors'];
-        if (in_array($color, $this->iniSettings)) {
-            $this->color = $color;
-        } else {
+        $iniSettings = $configuration->getIniFileSettings()['colors'];
+        if (!in_array($color, $iniSettings, true)) {
             throw new Exception('The color is not valid');
         }
+        $this->color = $color;
     }
 
     public function __toString(): string
@@ -26,4 +20,8 @@ class Color
         return $this->color;
     }
 
+    public function getColor(): string
+    {
+        return $this->color;
+    }
 }

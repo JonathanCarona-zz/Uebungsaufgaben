@@ -26,7 +26,7 @@ class FactoryTest extends TestCase
         $player = 'Alice';
         $this->playerArray = array($player);
         $this->colorArray = array(
-            'red' => 'Red'
+            'Red' => 'Red'
         );
         $cardsArray = array(
             'numberOfCards' => 1
@@ -41,25 +41,24 @@ class FactoryTest extends TestCase
         $this->configuration->method('getIniFileSettings')->willReturn($this->iniFileSettings);
         $logger = $this->createMock(StandardOutLogger::class);
         $this->configuration->method('getLogger')->willReturn($logger);
-        $this->configuration->method('getStringPossibleColors')->willReturn($this->iniFileSettings['colors']);
+        $this->configuration->method('getPossibleColors')->willReturn($this->iniFileSettings['colors']);
         $this->factory = new Factory($this->configuration);
     }
 
-    public function testCreateGame()
+    public function testGameCanBeCreated()
     {
-
         $this->assertInstanceOf(Game::class, $this->factory->createGame());
     }
 
-    public function testCreateColor()
+    public function testColorCanBeCreated()
     {
         $this->configuration->method('getIniFileSettings')->willReturn($this->iniFileSettings);
-        $this->assertInstanceOf(Color::class, $this->factory->createColor('Red', $this->configuration));
+        $this->assertInstanceOf(Color::class, $this->factory->createColor('Red'));
     }
 
-    public function testCreateCard()
+    public function testCardCanBeCreated()
     {
-        $this->assertInstanceOf(Card::class, $this->factory->createCard($this->color));
+        $this->assertInstanceOf(Card::class, $this->factory->createCard('Red'));
     }
 
 

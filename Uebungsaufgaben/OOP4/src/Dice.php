@@ -3,13 +3,14 @@
 
 class Dice
 {
-    /** @var Color */
-    private $color;
     /** @var Configuration  */
     private $configuration;
+    /** @var Factory */
+    private $factory;
 
-    public function __construct(Configuration $configuration)
+    public function __construct(Configuration $configuration, Factory $factory)
     {
+        $this->factory = $factory;
         $this->configuration = $configuration;
     }
 
@@ -17,9 +18,7 @@ class Dice
     public function roll(): Color
     {
         $possibleColors = $this->configuration->getPossibleColors();
-        $intDiceColor = rand(0, count($possibleColors) - 1);
-        $this->color = $possibleColors[$intDiceColor];
-        return $this->color;
+        $color = array_rand($possibleColors);
+        return $this->factory->createColor($color);
     }
-
 }

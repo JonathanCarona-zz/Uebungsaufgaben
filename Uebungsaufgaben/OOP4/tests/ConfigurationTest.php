@@ -30,7 +30,9 @@ class ConfigurationTest extends TestCase
     protected function setUp()
     {
         $this->player = $this->createMock(Player::class);
-        $this->playerArray = array($this->player);
+        $this->playerArray = array(
+            'alice' => 'Alice'
+        );
         $this->color = $this->createMock(Color::class);
         $this->colorArray = array(
             'red' => 'Red'
@@ -46,60 +48,62 @@ class ConfigurationTest extends TestCase
             'colors' => $this->colorArray,
             'cards' => $cardsArray
         );
-        $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
-        $this->configuration = new Configuration($this->logger, $this->inifileParser);
     }
 
-    public function testGetIniFileSettings()
+    public function testIniFileSettingsCanBeAsked()
     {
+
+
+        $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
+        $this->configuration = new Configuration($this->logger, $this->inifileParser);
         $this->assertEquals($this->iniFileSettings, $this->configuration->getIniFileSettings());
     }
 
-    public function testGetConfNumberOfCards()
+    public function testConfNumberOfCardsCanBeAsked()
     {
+
+
+        $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
+        $this->configuration = new Configuration($this->logger, $this->inifileParser);
         $this->assertSame(1, $this->configuration->getConfNumberOfCards());
     }
 
-    public function testGetLogger()
+    public function testLoggerCanBeAsked()
     {
+        $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
+        $this->configuration = new Configuration($this->logger, $this->inifileParser);
         $this->assertEquals($this->logger, $this->configuration->getLogger());
     }
 
-    public function testGetStringPossibleColors()
+    public function testPossibleColorsCanBeAsked()
     {
-        $this->assertEquals($this->iniFileSettings['colors'], $this->configuration->getStringPossibleColors());
+        $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
+        $this->configuration = new Configuration($this->logger, $this->inifileParser);
+        $this->assertEquals($this->iniFileSettings['colors'], $this->configuration->getPossibleColors());
     }
 
-    public function testGetPossibleColorsAndAddToPossibleColors()
-    {
-        $this->configuration->addToPossibleColors($this->colorArray);
-        $this->assertEquals($this->colorArray, $this->configuration->getPossibleColors());
-    }
 
     public function testExceptionIfNumberOfCardsIsLowerThanNumberOfColors()
     {
-        $this->expectException(Exception::class);
-        $this->expectExceptionMessage('The number of colors must be equal or greater than the number of cards.');
-
+        $playerArray = array(
+            'alice' => 'Alice'
+        );
         $colorArray = array(
-            'red' => 'Red',
-            'blue' => 'Blue'
+            'Red' => 'Red',
+            'Blue' => 'Blue'
         );
         $cardsArray = array(
             'numberOfCards' => 3
         );
         $iniFileSettings = array(
             'colors' => $colorArray,
-            'cards' => $cardsArray
+            'cards' => $cardsArray,
+            'players' => $playerArray
         );
-        /** @var IniFileParser | PHPUnit_Framework_MockObject_MockObject $inifileParser */
-        $inifileParser = $this->createMock(IniFileParser::class);
-        $inifileParser->method('parse')->willReturn($iniFileSettings);
-        $configuration = new Configuration($this->logger, $inifileParser);
-    }
 
-    public function testGetPathToLogFile()
-    {
-        $this->assertEquals('/tmp/logfile.txt', $this->configuration->getPathToLogfile());
+        $this->inifileParser->expects($this->once())->method('parse')->willReturn($iniFileSettings);
+        $this->expectException(Exception::class);
+        $this->expectExceptionMessage('The number of colors must be equal or greater than the number of cards.');
+        $configuration = new Configuration($this->logger, $this->inifileParser);
     }
 }

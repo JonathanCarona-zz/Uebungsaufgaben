@@ -59,7 +59,7 @@ class GameTest extends TestCase
 
         $this->configuration->method('getConfNumberOfCards')->willReturn(1);
         $this->configuration->method('getLogger')->willReturn($this->logger);
-        $this->configuration->method('getStringPossibleColors')->willReturn($this->iniColorArray);
+        $this->configuration->method('getPossibleColors')->willReturn($this->iniColorArray);
 
 
         $this->factory->method('createColor')->willReturn($color);
@@ -70,7 +70,7 @@ class GameTest extends TestCase
     }
 
 
-    public function testPlayGame()
+    public function testGameCanBePlayed()
     {
         $this->configuration->method('getPossibleColors')->willReturn($this->colorArray);
         /** @var Card | PHPUnit_Framework_MockObject_MockObject $card */
@@ -81,9 +81,8 @@ class GameTest extends TestCase
         $this->player->method('hasWon')->willReturn(true);
         $card->method('__toString')->willReturn('Red');
         $this->player->method('getName')->willReturn('Alice');
-        $this->logger->expects($this->exactly(2))->method('log')->withConsecutive(
-            ['Alice gets a ' . $card],
-            ['']
+        $this->logger->expects($this->exactly(1))->method('log')->withConsecutive(
+            ['Alice gets a ' . $card]
         );
         $this->game->playGame();
 

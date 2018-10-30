@@ -17,4 +17,5 @@ class IniFileParser
     {
         return parse_ini_file($this->pathToIniFile, true);
     }
+
 }

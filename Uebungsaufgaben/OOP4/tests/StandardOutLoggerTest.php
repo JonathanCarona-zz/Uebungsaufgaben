@@ -16,10 +16,9 @@ class StandardOutLoggerTest extends TestCase
         $this->standardOutLogger = new StandardOutLogger();
     }
 
-    public function testLog()
+    public function testCanBeLogged()
     {
         $this->expectOutputString('Hallo'. PHP_EOL);
         $this->standardOutLogger->log('Hallo');
     }
-
 }

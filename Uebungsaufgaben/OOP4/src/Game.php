@@ -15,10 +15,6 @@ class Game
      * @var LoggerInterface
      */
     private $logger;
-    /** @var Player */
-    private $player;
-    /** @var bool */
-    private $gameOver = false;
     /** @var Dice */
     private $dice;
     /**
@@ -27,8 +23,7 @@ class Game
     private $gameDelayer;
     /** @var Factory */
     private $factory;
-    /** @var array */
-    private $possibleColors;
+
 
     public function __construct(
         Configuration $configuration,
@@ -50,26 +45,23 @@ class Game
     {
         $this->numberOfCards = $this->configuration->getConfNumberOfCards();
         $this->logger = $this->configuration->getLogger();
-        $possibleColors = $this->configuration->getStringPossibleColors();
-        foreach ($possibleColors as $possibleColor) {
-            $this->possibleColors[] = $this->factory->createColor($possibleColor, $this->configuration);
-        }
-        $this->configuration->addToPossibleColors($this->possibleColors);
     }
 
     public function playGame(): void
     {
-        foreach ($this->players as $this->player) {
-            $this->giveRandomCardsToPlayer($this->player);
+        /** @var Player $player */
+        foreach ($this->players as $player) {
+            $this->giveRandomCardsToPlayer($player);
         }
-        while (!$this->gameOver) {
-            foreach ($this->players as $this->player) {
-                $this->player->makeTurn($this->dice);
-                $this->logger->log('');
-                $this->gameDelayer->delay(2);
-                if ($this->player->hasWon()) {
-                    $this->gameOver = true;
-                    break;
+        $gameover = false;
+        while (!$gameover) {
+            /** @var Player $player */
+            foreach ($this->players as $player) {
+                $player->makeTurn($this->dice);
+                $gameover = $player->hasWon();
+                if (!$gameover) {
+                    $this->logger->log($player->getName() . '`s turn has finished');
+                    $this->gameDelayer->delay(2);
                 }
             }
         }
@@ -79,16 +71,12 @@ class Game
     private function giveRandomCardsToPlayer(Player $player): void
     {
         $possibleColors = $this->configuration->getPossibleColors();
-        for ($playerCardCount = count($player->getCards());
-             $playerCardCount < $this->numberOfCards;) {
-            $intShuffleCardColor = array_rand($possibleColors);
-            $shuffleCardColor = $possibleColors[$intShuffleCardColor];
-            unset($possibleColors[$intShuffleCardColor]);
-            $possibleColors = array_values($possibleColors);
-            $shuffleCard = $this->factory->createCard($shuffleCardColor);
+        for ($i = 0; $i < $this->numberOfCards; $i++) {
+            $color = array_rand($possibleColors);
+            unset($possibleColors[$color]);
+            $shuffleCard = $this->factory->createCard($color);
             $player->addToCards($shuffleCard);
             $this->logger->log($player->getName() . ' gets a ' . $shuffleCard);
-            $playerCardCount++;
             $this->gameDelayer->delay(1);
         }
     }

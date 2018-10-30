@@ -12,19 +12,23 @@ class DiceTest extends TestCase
     private $configuration;
     /** @var Dice */
     private $dice;
+    /** @var Factory|PHPUnit_Framework_MockObject_MockObject $factory */
+    private $factory;
 
     protected function setUp()
     {
         $color = $this->createMock(Color::class);
         $this->configuration = $this->createMock(Configuration::class);
-        $this->dice = new Dice($this->configuration);
+        $this->factory = $this->createMock(Factory::class);
+        $this->dice = new Dice($this->configuration, $this->factory);
     }
 
-    public function testRoll()
+    public function testDiceCanBeRolled()
     {
         $color = $this->createMock(Color::class);
         $colorArray[] = $color;
         $this->configuration->method('getPossibleColors')->willReturn($colorArray);
+        $this->factory->method('createColor')->willReturn($color);
         $this->assertEquals($color, $this->dice->roll());
     }
 

@@ -7,34 +7,34 @@ class Configuration
     /** @var int */
     private $confNumberOfCards;
     /** @var array */
-    private $confPossibleColors = array();
+    private $possibleColors = array();
     /** @var LoggerInterface */
     private $logger;
     /** @var array */
     private $iniFileSettings = array();
-    /**
-     * @var IniFileParser
-     */
-    private $iniFileParser;
+    /** @var IniFileParser  */
+    private $IniFileParser;
     /** @var array */
-    private $possibleColors;
+    private $players;
 
     public function __construct(LoggerInterface $logger, IniFileParser $iniFileParser)
     {
         $this->logger = $logger;
-        $this->iniFileParser = $iniFileParser;
-        $this->iniFileSettings = $this->iniFileParser->parse();
+        $this->IniFileParser = $iniFileParser;
+        $this->iniFileSettings = $iniFileParser->parse();
         $this->applyIniSettings();
     }
 
     private function applyIniSettings(): void
     {
-        if (count($this->iniFileSettings['colors']) >= $this->iniFileSettings['cards']['numberOfCards'])  {
-            $this->confNumberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
-        } else {
+        $numberOfColors = count($this->iniFileSettings['colors']);
+        $numberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
+        if ($numberOfColors < $numberOfCards)  {
             throw new Exception('The number of colors must be equal or greater than the number of cards.');
         }
-        $this->confPossibleColors = $this->iniFileSettings['colors'];
+        $this->players = $this->iniFileSettings['players'];
+        $this->confNumberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
+        $this->possibleColors = $this->iniFileSettings['colors'];
     }
 
     public function getIniFileSettings(): array
@@ -52,20 +52,9 @@ class Configuration
         return $this->logger;
     }
 
-
-    public function getStringPossibleColors(): array
+    public function getPlayers(): array
     {
-        return $this->confPossibleColors;
-    }
-
-    public function getPathToLogfile(): string
-    {
-        return '/tmp/logfile.txt';
-    }
-
-
-    public function addToPossibleColors(array $colors): void {
-        $this->possibleColors = $colors;
+        return $this->players;
     }
 
 

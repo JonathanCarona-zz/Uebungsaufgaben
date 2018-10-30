@@ -19,22 +19,18 @@ class CardTest extends TestCase
         $this->card = new Card($this->color);
     }
 
-    public function testTurn() {
-        $this->assertSame(false, $this->card->isTurned());
+    public function testCardCanBeTurned() {
+        $this->assertFalse(false, $this->card->isTurned());
         $this->card->turn();
-        $this->assertSame(true, $this->card->isTurned());
+        $this->assertTrue(true, $this->card->isTurned());
     }
 
-    public function testGetColor() {
+    public function testColorCanBeAsked() {
         $expectedColor = $this->createMock(Color::class);
         $this->assertEquals($expectedColor, $this->card->getColor());
     }
 
-    public function testIsTurned() {
-        $this->assertSame(false, $this->card->isTurned());
-    }
-
-    public function testToString() {
+    public function testCardWillBeCastedToString() {
         /** @var Color $expectedOutput */
         $expectedOutput = $this->createMock(Color::class);
         $this->assertEquals($expectedOutput . ' Card', (string) $this->card);
