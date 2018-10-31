@@ -17,7 +17,6 @@ class FileLoggerTest extends TestCase
     {
         $this->pathToLogfile = '/tmp/unittest-filelogger.txt';
         $this->fileLogger = new FileLogger($this->pathToLogfile);
-        file_put_contents($this->pathToLogfile, '');
     }
 
     public function testCanBeLogged(): void
