@@ -8,7 +8,7 @@ class Color
 
     public function __construct(string $color, Configuration $configuration)
     {
-        $iniSettings = $configuration->getIniFileSettings()['colors'];
+        $iniSettings = $configuration->getColors();
         if (!in_array($color, $iniSettings, true)) {
             throw new Exception('The color is not valid');
         }

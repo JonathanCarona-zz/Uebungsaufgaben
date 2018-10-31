@@ -26,40 +26,41 @@ class PlayerTest extends TestCase
 
     }
 
-    public function testNameCanBeAsked()
+    public function testNameCanBeAsked(): void
+
     {
         $this->assertSame('Jonathan', $this->player->getName());
     }
 
-    public function testCardsCanBeAddedToPlayer()
+    public function testCardsCanBeAddedToPlayer(): void
     {
         $this->player->addToCards($this->card);
         $givenCard = $this->player->getCards();
         $this->assertEquals($this->card, $givenCard[0]);
     }
 
-    public function testCardsCanBeObtained()
+    public function testCardsCanBeObtained(): void
     {
         $cardArray = array($this->card);
         $this->player->addToCards($this->card);
         $this->assertEquals($cardArray, $this->player->getCards());
     }
 
-    public function testIfPlayerHasWon()
+    public function testIfPlayerHasWon(): void
     {
         $this->player->addToCards($this->card);
         $this->card->method('isTurned')->willReturn(true);
         $this->assertEquals(true, $this->player->hasWon());
     }
 
-    public function testIfPlayerHasNotYetWon()
+    public function testIfPlayerHasNotYetWon(): void
     {
         $this->player->addToCards($this->card);
         $this->card->method('isTurned')->willReturn(false);
         $this->assertEquals(false, $this->player->hasWon());
     }
 
-    public function testPlayerCanMakeTurnAndDoesNotWin()
+    public function testPlayerCanMakeTurnAndDoesNotWin(): void
     {
         $this->card->method('getColor')->willReturn($this->color);
         $this->card->method('__toString')->willReturn(' green Card ');
@@ -86,7 +87,7 @@ class PlayerTest extends TestCase
         $this->assertEquals(false, $this->player->hasWon());
     }
 
-    public function testPlayerCanMakeTurnAndWins()
+    public function testPlayerCanMakeTurnAndWins(): void
     {
         $this->card->method('getColor')->willReturn($this->color);
         $this->card->method('__toString')->willReturn(' green Card ');

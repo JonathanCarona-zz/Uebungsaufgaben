@@ -18,12 +18,8 @@ class ColorTest extends TestCase
     protected function setUp()
     {
         $this->configuration = $this->createMock(Configuration::class);
-        $this->colorArray = array(
-            'colors' => array(
-                'Red' => 'Red'
-            )
-        );
-        $this->configuration->method('getIniFileSettings')->willReturn($this->colorArray);
+        $this->colorArray = array('Red');
+        $this->configuration->method('getColors')->willReturn($this->colorArray);
         $this->color = new Color('Red', $this->configuration);
     }
 
@@ -53,7 +49,7 @@ class ColorTest extends TestCase
         ];
     }
 
-    public function testColorWillBeCastedToString()
+    public function testColorWillBeCastedToString(): void
     {
         $this->assertSame('Red', (string)$this->color);
     }

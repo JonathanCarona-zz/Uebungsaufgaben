@@ -32,7 +32,7 @@ class Factory
     private function createPlayersFromIniFile(LoggerInterface $logger): array
     {
         $playerArray = array();
-        $playerNamesArray = $this->configuration->getIniFileSettings()['players'];
+        $playerNamesArray = $this->configuration->getPlayers();
         foreach ($playerNamesArray as $playerName) {
             $playerArray[] = new Player($playerName, $logger);
         }

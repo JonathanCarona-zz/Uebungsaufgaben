@@ -5,8 +5,6 @@ class Game
 {
     /** @var int */
     private $numberOfCards;
-    /** @var int */
-    private $numberOfPlayers;
     /** @var array */
     private $players;
     /** @var Configuration */
@@ -34,7 +32,6 @@ class Game
     {
         $this->factory = $factory;
         $this->players = $playerArray;
-        $this->numberOfPlayers = count($this->players);
         $this->configuration = $configuration;
         $this->applyConfiguration();
         $this->dice = $dice;
@@ -53,15 +50,15 @@ class Game
         foreach ($this->players as $player) {
             $this->giveRandomCardsToPlayer($player);
         }
-        $gameover = false;
-        while (!$gameover) {
+        $gameOver = false;
+        while (!$gameOver) {
             /** @var Player $player */
             foreach ($this->players as $player) {
                 $player->makeTurn($this->dice);
                 $this->logger->log($player->getName() . '`s turn has finished');
                 $this->gameDelayer->delay(2);
-                $gameover = $player->hasWon();
-                if ($gameover) {
+                $gameOver = $player->hasWon();
+                if ($gameOver) {
                     break;
                 }
 
@@ -72,7 +69,7 @@ class Game
 
     private function giveRandomCardsToPlayer(Player $player): void
     {
-        $possibleColors = $this->configuration->getPossibleColors();
+        $possibleColors = $this->configuration->getColors();
         for ($i = 0; $i < $this->numberOfCards; $i++) {
             $color = array_rand($possibleColors);
             unset($possibleColors[$color]);

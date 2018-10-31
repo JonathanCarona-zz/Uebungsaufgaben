@@ -13,7 +13,7 @@ class SleepGameDelayerTest extends TestCase
         $this->sleepGameDelayer = new SleepGameDelayer();
     }
 
-    public function testGameCanBeDelayed()
+    public function testGameCanBeDelayed(): void
     {
         $time_pre = microtime(true);
         $this->sleepGameDelayer->delay(3);

@@ -20,7 +20,7 @@ class FileLoggerTest extends TestCase
         file_put_contents($this->pathToLogfile, '');
     }
 
-    public function testCanBeLogged()
+    public function testCanBeLogged(): void
     {
         $this->fileLogger->log('Hallo');
         $this->assertSame('Hallo', file_get_contents($this->pathToLogfile));

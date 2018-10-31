@@ -59,7 +59,7 @@ class GameTest extends TestCase
 
         $this->configuration->method('getConfNumberOfCards')->willReturn(1);
         $this->configuration->method('getLogger')->willReturn($this->logger);
-        $this->configuration->method('getPossibleColors')->willReturn($this->iniColorArray);
+        $this->configuration->method('getColors')->willReturn($this->iniColorArray);
 
 
         $this->factory->method('createColor')->willReturn($color);
@@ -70,9 +70,9 @@ class GameTest extends TestCase
     }
 
 
-    public function testGameCanBePlayed()
+    public function testGameCanBePlayed(): void
     {
-        $this->configuration->method('getPossibleColors')->willReturn($this->colorArray);
+        $this->configuration->method('getColors')->willReturn($this->colorArray);
         /** @var Card | PHPUnit_Framework_MockObject_MockObject $card */
         $card = $this->createMock(Card::class);
         $cardPlayerArray = array();

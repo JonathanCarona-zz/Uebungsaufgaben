@@ -14,7 +14,7 @@ class IniFileParserTest extends TestCase
         $this->iniFileParser = new IniFileParser('/home/dev/PhpstormProjects/Uebungsaufgaben/OOP4/tests/TestConfiguration.ini');
     }
 
-    public function testIniFilesCanBeParsed()
+    public function testIniFilesCanBeParsed(): void
     {
         $arrayTest = array(
             'test' => 'test'

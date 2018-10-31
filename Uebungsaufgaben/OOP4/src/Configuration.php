@@ -7,20 +7,17 @@ class Configuration
     /** @var int */
     private $confNumberOfCards;
     /** @var array */
-    private $possibleColors = array();
+    private $colors = array();
     /** @var LoggerInterface */
     private $logger;
     /** @var array */
     private $iniFileSettings = array();
-    /** @var IniFileParser  */
-    private $IniFileParser;
     /** @var array */
     private $players;
 
     public function __construct(LoggerInterface $logger, IniFileParser $iniFileParser)
     {
         $this->logger = $logger;
-        $this->IniFileParser = $iniFileParser;
         $this->iniFileSettings = $iniFileParser->parse();
         $this->applyIniSettings();
     }
@@ -35,13 +32,9 @@ class Configuration
 
         $this->players = $this->iniFileSettings['players'];
         $this->confNumberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
-        $this->possibleColors = $this->iniFileSettings['colors'];
+        $this->colors = $this->iniFileSettings['colors'];
     }
 
-    public function getIniFileSettings(): array
-    {
-        return $this->iniFileSettings;
-    }
 
     public function getConfNumberOfCards(): int
     {
@@ -59,8 +52,8 @@ class Configuration
     }
 
 
-    public function getPossibleColors(): array
+    public function getColors(): array
     {
-        return $this->possibleColors;
+        return $this->colors;
     }
 }

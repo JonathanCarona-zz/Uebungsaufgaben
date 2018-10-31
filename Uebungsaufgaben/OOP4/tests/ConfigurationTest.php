@@ -50,23 +50,14 @@ class ConfigurationTest extends TestCase
         );
     }
 
-    public function testPlayersCanBeAsked()
+    public function testPlayersCanBeAsked(): void
     {
         $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
         $this->configuration = new Configuration($this->logger, $this->inifileParser);
         $this->assertEquals($this->playerArray, $this->configuration->getPlayers());
     }
 
-    public function testIniFileSettingsCanBeAsked()
-    {
-
-
-        $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
-        $this->configuration = new Configuration($this->logger, $this->inifileParser);
-        $this->assertEquals($this->iniFileSettings, $this->configuration->getIniFileSettings());
-    }
-
-    public function testConfNumberOfCardsCanBeAsked()
+    public function testConfNumberOfCardsCanBeAsked():void
     {
 
 
@@ -75,22 +66,22 @@ class ConfigurationTest extends TestCase
         $this->assertSame(1, $this->configuration->getConfNumberOfCards());
     }
 
-    public function testLoggerCanBeAsked()
+    public function testLoggerCanBeAsked(): void
     {
         $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
         $this->configuration = new Configuration($this->logger, $this->inifileParser);
         $this->assertEquals($this->logger, $this->configuration->getLogger());
     }
 
-    public function testPossibleColorsCanBeAsked()
+    public function testPossibleColorsCanBeAsked(): void
     {
         $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
         $this->configuration = new Configuration($this->logger, $this->inifileParser);
-        $this->assertEquals($this->iniFileSettings['colors'], $this->configuration->getPossibleColors());
+        $this->assertEquals($this->iniFileSettings['colors'], $this->configuration->getColors());
     }
 
 
-    public function testExceptionIfNumberOfCardsIsLowerThanNumberOfColors()
+    public function testExceptionIfNumberOfCardsIsLowerThanNumberOfColors(): void
     {
         $playerArray = array(
             'alice' => 'Alice'

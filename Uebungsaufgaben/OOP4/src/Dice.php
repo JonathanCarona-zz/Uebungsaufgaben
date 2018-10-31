@@ -17,7 +17,7 @@ class Dice
 
     public function roll(): Color
     {
-        $possibleColors = $this->configuration->getPossibleColors();
+        $possibleColors = $this->configuration->getColors();
         $color = array_rand($possibleColors);
         return $this->factory->createColor($color);
     }
