@@ -29,9 +29,10 @@ class Configuration
     {
         $numberOfColors = count($this->iniFileSettings['colors']);
         $numberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
-        if ($numberOfColors < $numberOfCards)  {
+        if (($numberOfColors < $numberOfCards) || ($numberOfCards <= 0))  {
             throw new Exception('The number of colors must be equal or greater than the number of cards.');
         }
+
         $this->players = $this->iniFileSettings['players'];
         $this->confNumberOfCards = $this->iniFileSettings['cards']['numberOfCards'];
         $this->possibleColors = $this->iniFileSettings['colors'];

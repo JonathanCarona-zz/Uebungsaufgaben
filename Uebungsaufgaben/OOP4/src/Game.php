@@ -58,11 +58,13 @@ class Game
             /** @var Player $player */
             foreach ($this->players as $player) {
                 $player->makeTurn($this->dice);
+                $this->logger->log($player->getName() . '`s turn has finished');
+                $this->gameDelayer->delay(2);
                 $gameover = $player->hasWon();
-                if (!$gameover) {
-                    $this->logger->log($player->getName() . '`s turn has finished');
-                    $this->gameDelayer->delay(2);
+                if ($gameover) {
+                    break;
                 }
+
             }
         }
     }

@@ -81,12 +81,13 @@ class GameTest extends TestCase
         $this->player->method('hasWon')->willReturn(true);
         $card->method('__toString')->willReturn('Red');
         $this->player->method('getName')->willReturn('Alice');
-        $this->logger->expects($this->exactly(1))->method('log')->withConsecutive(
-            ['Alice gets a ' . $card]
+        $this->logger->expects($this->exactly(2))->method('log')->withConsecutive(
+            ['Alice gets a ' . $card],
+            ['Alice`s turn has finished']
         );
         $this->game->playGame();
-
     }
+
 
 
 }

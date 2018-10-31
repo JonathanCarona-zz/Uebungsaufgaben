@@ -50,6 +50,13 @@ class ConfigurationTest extends TestCase
         );
     }
 
+    public function testPlayersCanBeAsked()
+    {
+        $this->inifileParser->method('parse')->willReturn($this->iniFileSettings);
+        $this->configuration = new Configuration($this->logger, $this->inifileParser);
+        $this->assertEquals($this->playerArray, $this->configuration->getPlayers());
+    }
+
     public function testIniFileSettingsCanBeAsked()
     {
 
