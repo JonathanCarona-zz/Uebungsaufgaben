@@ -66,7 +66,7 @@ class Player
     private function isTheSameColor(Color $color, Card $card): bool
     {
         $cardColor = $card->getColor();
-        return ($cardColor->getColor() === $color->getColor() ? true : false);
+        return $cardColor->getColor() === $color->getColor();
     }
 
     private function flipEqualColorCard(Color $color): void

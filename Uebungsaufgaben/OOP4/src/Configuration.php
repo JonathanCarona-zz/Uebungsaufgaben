@@ -51,7 +51,6 @@ class Configuration
         return $this->players;
     }
 
-
     public function getColors(): array
     {
         return $this->colors;

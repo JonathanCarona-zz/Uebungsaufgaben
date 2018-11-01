@@ -50,6 +50,7 @@ class Game
         foreach ($this->players as $player) {
             $this->giveRandomCardsToPlayer($player);
         }
+
         $gameOver = false;
         while (!$gameOver) {
             /** @var Player $player */
@@ -61,7 +62,6 @@ class Game
                 if ($gameOver) {
                     break;
                 }
-
             }
         }
     }
