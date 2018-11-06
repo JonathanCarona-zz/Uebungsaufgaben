@@ -48,7 +48,7 @@ class Game
     {
         /** @var Player $player */
         foreach ($this->players as $player) {
-            $this->giveRandomCardsToPlayer($player);
+            $this->giveRandomCardsToPlayer2($player);
         }
 
         $gameOver = false;
@@ -78,5 +78,34 @@ class Game
             $this->logger->log($player->getName() . ' gets a ' . $shuffleCard);
             $this->gameDelayer->delay(1);
         }
+    }
+
+    private function giveRandomCardsToPlayer2(Player $player): void
+    {
+        // Anzahl Farben - Anzahl Karten pro Spieler = Anzahl zu entfernde Farben $countOfCardsToBeRemoved
+        // => Array von Farben -> zufällig $countOfCards... entfernen
+        // => Karten an Spieler geben mit den übrig gebliebenen Farben
+        $possibleColors = $this->configuration->getColors();
+
+        $countOfCardsToBeRemoved = count($this->configuration->getColors()) - $this->numberOfCards;
+        for($i = 0; $i < $countOfCardsToBeRemoved; $i++) {
+            unset($possibleColors[rand(0, count($possibleColors))]);
+        }
+
+        foreach ($possibleColors as $possibleColor) {
+            $card = $this->factory->createCard($possibleColor);
+            $player->addToCards($card);
+            $this->logger->log($player->getName() . ' gets a ' . $card);
+        }
+
+//
+//        for ($i = 0; $i < $this->numberOfCards; $i++) {
+//            $color = array_rand($possibleColors);
+//            unset($possibleColors[$color]);
+//            $shuffleCard = $this->factory->createCard($color);
+//            $player->addToCards($shuffleCard);
+//            $this->logger->log($player->getName() . ' gets a ' . $shuffleCard);
+//            $this->gameDelayer->delay(1);
+//        }
     }
 }
