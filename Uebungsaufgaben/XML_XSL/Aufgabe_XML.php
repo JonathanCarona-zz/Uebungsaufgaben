@@ -1,18 +1,17 @@
 <?php
 
-// Aufgabe 1.3
-//$counter = 1;
-//$domDocument = new DOMDocument('1.0', "UTF-8");
-//$domDocument->load('product.xml');
-//$elements = $domDocument->getElementsByTagName('*');
 
-//foreach ($elements as $child) {
-//    $child->setAttribute('visited', $counter++);
-//}
+$counter = 1;
+$domDocument = new DOMDocument('1.0', "UTF-8");
+$domDocument->load('product.xml');
+$elements = $domDocument->getElementsByTagName('*');
 
-//print $domDocument->saveXML();
+foreach ($elements as $child) {
+    $child->setAttribute('visited', $counter++);
+}
 
-// Aufgabe 1.4
+print $domDocument->saveXML();
+
 $dom = new DOMDocument();
 $dom->loadXML('<?xml version="1.0" ?><product />');
 $productElement = $dom->getElementsByTagName('product');
@@ -20,17 +19,21 @@ $productElement->item(0)->setAttribute('sku', 123456);
 $descriptionElement = $dom->createElement('description');
 $descriptionAttribute = $dom->createAttribute('type');
 $descriptionElement->appendChild($descriptionAttribute);
+$descriptionElement->appendChild($dom->createElement('flotest'));
 $descriptionElement->setAttribute('type', 'short');
 $dom->appendChild($descriptionElement);
 $productElement->item(0)->appendChild($descriptionElement);
-//print $dom->saveXML();
+print $dom->saveXML();
 
-// Aufgabe 1.5
+
+echo '================'.PHP_EOL;
+
+//// Aufgabe 1.5
 $secondDom = new DOMDocument();
 $secondDom->load('product.xml');
-$descriptionElement = $secondDom->importNode($descriptionElement);
+$descriptionElement = $secondDom->importNode($descriptionElement, true);
 $secondDom->getElementsByTagName('product')->item(0)->appendChild($descriptionElement);
-//print $secondDom->saveXML();
+print $secondDom->saveXML();
 
 
 // Aufgabe 1.6
