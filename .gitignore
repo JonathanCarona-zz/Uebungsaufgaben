@@ -1,1 +1,3 @@
-*workspace.xml
+**/autoload.php
+.idea
+build/
