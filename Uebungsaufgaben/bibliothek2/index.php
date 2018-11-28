@@ -67,7 +67,6 @@
         }
 
         if (isset($_POST['searchBook']) && $_POST['searchBook'] != '') {
-
             $bookId = array();
             $search = $_POST["searchBook"];
             $elements = $xpath->query("/catalog/book[title=" . "'$search'" . "]");
@@ -93,7 +92,5 @@
 
     </div>
 </div>
-
-
 </body>
 </html>

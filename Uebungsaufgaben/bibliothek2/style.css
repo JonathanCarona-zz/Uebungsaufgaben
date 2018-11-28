@@ -65,6 +65,7 @@ body {
     border-radius: 15px;
     -moz-border-radius: 15px;
     font-size: 30px;
+    overflow: scroll;
 }
 
 #createForm {
@@ -80,6 +81,11 @@ body {
 #result td {
     font-family: "Open Sans";
     font-size: 25px;
+    overflow: scroll;
+}
+
+th {
+    text-align: left;
 }
 
 form {

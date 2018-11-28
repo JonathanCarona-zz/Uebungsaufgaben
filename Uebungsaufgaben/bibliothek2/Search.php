@@ -46,7 +46,7 @@
                 <td><textarea rows="20" cols="150" form="createForm" name="createDescription" required>No description</textarea> </td>
             </tr>
             <tr>
-                <td></td>
+                <td><a href="index.php"><button>Back</button></a> </td>
                 <td><input type="submit" value="Create""></td>
             </tr>
         </table>

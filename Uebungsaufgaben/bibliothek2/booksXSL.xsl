@@ -7,12 +7,12 @@
             <body>
         <table style="width: 100%">
             <tr>
-                <th >Author</th>
-                <th>Title</th>
-                <th>Genre</th>
-                <th>Price</th>
-                <th>Publishing Date</th>
-                <th>Description</th>
+                <th style="width: 15%">Author</th>
+                <th style="width: 20%">Title</th>
+                <th style="width: 10%">Genre</th>
+                <th style="width: 10%">Price</th>
+                <th style="width: 10%">Publishing Date</th>
+                <th style="width: 35%">Description</th>
             </tr>
             <xsl:choose>
                 <xsl:when test="($sort != 'low') and ($sort != 'high')">
