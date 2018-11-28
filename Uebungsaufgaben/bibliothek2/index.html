@@ -23,7 +23,7 @@
         <form>
             Author: <input type="text" name="searchText">
             Book title: <input type="text" name="searchText">
-            Sort by: <select>
+            Sort by: <select onchange="this.form.submit()">
             <option value="author">Author</option>
             <option value="title">Title</option>
             <option value="genre">Genre</option>

@@ -22,7 +22,7 @@
         <form action="" method="POST">
             Author: <input type="text" name="searchAuthor">
             Book title: <input type="text" name="searchBook">
-            Sort by: <select name="sort">
+            Sort by: <select name="sort" onchange="this.form.submit()">
                 <option value="author">Author</option>
                 <option value="title">Title</option>
                 <option value="genre">Genre</option>
