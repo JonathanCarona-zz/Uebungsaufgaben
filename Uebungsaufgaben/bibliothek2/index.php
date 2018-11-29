@@ -46,7 +46,8 @@
         $xpath = new DOMXPath($dom);
 
 
-        if (isset($_POST['searchAuthor']) && $_POST['searchAuthor'] != '') {
+
+        if (isset($_POST["searchAuthor"]) && $_POST["searchAuthor"] != '') {
 
             $bookId = array();
             $search = $_POST["searchAuthor"];
@@ -87,9 +88,9 @@
         if (isset($_POST["sort"])) {
             $proc->setParameter('', 'sort', $_POST['sort']);
         }
+
         echo $proc->transformToXml($dom);
         ?>
-
     </div>
 </div>
 </body>
