@@ -147,43 +147,51 @@
         <description>No description</description>
     </book>
     <book id="bk115">
-        <author>Test</author>
-        <title>Test</title>
-        <genre>Testing</genre>
+        <author>Deadpool</author>
+        <title>Deadpool 5</title>
+        <genre>Comedy</genre>
         <price>53.43</price>
         <publish_date>0002-03-31</publish_date>
         <description>No description</description>
     </book>
     <book id="bk116">
-        <author>Test</author>
-        <title>Test1</title>
-        <genre>ttttt</genre>
+        <author>Book</author>
+        <title>Of</title>
+        <genre>The Year</genre>
         <price>52.35</price>
         <publish_date>2018-11-07</publish_date>
         <description>No description</description>
     </book>
     <book id="bk117">
-        <author>Test</author>
-        <title>Test1</title>
-        <genre>ttttt</genre>
+        <author>Some Author</author>
+        <title>Some Book</title>
+        <genre>Some Genre</genre>
         <price>52.35</price>
         <publish_date>2018-11-07</publish_date>
         <description>No description</description>
     </book>
     <book id="bk118">
-        <author>Test</author>
-        <title>Test1</title>
-        <genre>ttttt</genre>
+        <author>Another One</author>
+        <title>It</title>
+        <genre>Action</genre>
         <price>52.35</price>
         <publish_date>2018-11-07</publish_date>
         <description>No description</description>
     </book>
     <book id="bk119">
-        <author>Test</author>
-        <title>Test1</title>
-        <genre>ttttt</genre>
+        <author>EA Sports</author>
+        <title>The Journey</title>
+        <genre>Sports</genre>
         <price>52.35</price>
         <publish_date>2018-11-07</publish_date>
         <description>No description</description>
+    </book>
+    <book id="bk120">
+        <author>J.R Smith</author>
+        <title>Losing NBA Finals</title>
+        <genre>Action / Adventure</genre>
+        <price>99.95</price>
+        <publish_date>2018-12-01</publish_date>
+        <description>J.R runs away with the ball.</description>
     </book>
 </catalog>

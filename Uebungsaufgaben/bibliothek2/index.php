@@ -22,7 +22,7 @@
         <form action="" method="POST">
             Author: <input type="text" name="searchAuthor">
             Book title: <input type="text" name="searchBook">
-            Sort by: <select name="sort">
+            Sort by: <select name="sort" onchange="this.form.submit()">
                 <option value="author">Author</option>
                 <option value="title">Title</option>
                 <option value="genre">Genre</option>
@@ -46,7 +46,8 @@
         $xpath = new DOMXPath($dom);
 
 
-        if (isset($_POST['searchAuthor']) && $_POST['searchAuthor'] != '') {
+
+        if (isset($_POST["searchAuthor"]) && $_POST["searchAuthor"] != '') {
 
             $bookId = array();
             $search = $_POST["searchAuthor"];
@@ -87,9 +88,9 @@
         if (isset($_POST["sort"])) {
             $proc->setParameter('', 'sort', $_POST['sort']);
         }
+
         echo $proc->transformToXml($dom);
         ?>
-
     </div>
 </div>
 </body>
