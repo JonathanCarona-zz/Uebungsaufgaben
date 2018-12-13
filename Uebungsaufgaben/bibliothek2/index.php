@@ -85,6 +85,7 @@
                 }
             }
         }
+
         if (isset($_POST["sort"])) {
             $proc->setParameter('', 'sort', $_POST['sort']);
         }

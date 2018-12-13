@@ -81,7 +81,6 @@ body {
 #result td {
     font-family: "Open Sans";
     font-size: 25px;
-    overflow: scroll;
 }
 
 th {

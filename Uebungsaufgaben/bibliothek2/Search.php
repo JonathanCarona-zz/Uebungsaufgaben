@@ -46,7 +46,7 @@
                 <td><textarea rows="20" cols="150" form="createForm" name="createDescription" required>No description</textarea> </td>
             </tr>
             <tr>
-                <td><a href="index.php"><button>Back</button></a> </td>
+                <td><button formnovalidate onclick="window.location.href='index.php'">Back</button></td>
                 <td><input type="submit" value="Create""></td>
             </tr>
         </table>
@@ -83,7 +83,6 @@
         $newBook->appendChild($price);
         $newBook->appendChild($publish_date);
         $newBook->appendChild($description);
-
         $dom->save('books.xml');
     }
     ?>
