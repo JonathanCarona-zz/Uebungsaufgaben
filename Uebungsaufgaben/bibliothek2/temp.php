@@ -1,96 +1,35 @@
-<html>
-<head>
-    <link rel="stylesheet" href="style.css" type="text/css"/>
-    <title>Competec Library</title>
-</head>
-<body>
-<div id="header">
-
-    <table style="width:100%">
-        <tr>
-            <td id="title"><a href="index.php" style="text-decoration: none; color : #000000">COMPETEC LIBRARY</a></td>
-            <td style="font-size: 25px"><a href="index.php" style="text-decoration: none; color : #000000">Home</a></td>
-            <td style="font-size: 25px">Books</td>
-            <td style="font-size: 25px">Contact</td>
-            <td style="font-size: 25px">FAQ</td>
-        </tr>
-    </table>
-</div>
-
-<div id="content">
-    <div id="search">
-        <form action="" method="POST">
-            Author: <input type="text" name="searchAuthor">
-            Book title: <input type="text" name="searchBook">
-            Sort by: <select name="sort" onchange="this.form.submit()">
-                <option value="author">Author</option>
-                <option value="title">Title</option>
-                <option value="genre">Genre</option>
-                <option value="low">Lowest Price</option>
-                <option value="high">Highest Price</option>
-                <option value="publish_date">Publishing Date</option>
-            </select>
-            <input type="submit" value="Search" name="Submit">
-        </form>
-        <button style="margin-left: 50%" onclick="window.location.href='Search.php'">Create new record</button>
-    </div>
-    <div id="result">
-
-        <?php
-        $dom = new DOMDocument();
-        $dom->load('books.xml');
-        $xsl = new DOMDocument();
-        $xsl->load('booksXSL.xsl');
-        $proc = new XSLTProcessor();
-        $proc->importStylesheet($xsl);
-        $xpath = new DOMXPath($dom);
+<?php
+$dom = new DOMDocument();
+$dom->load('books.xml');
+$xpath = new DOMXPath($dom);
+if (isset($_POST) && $_POST != NULL) {
+    $dom = new DOMDocument();
+    $dom->load('books.xml');
+    $xpath = new DOMXPath($dom);
 
 
-        if (isset($_POST["searchAuthor"]) && $_POST["searchAuthor"] != '') {
+    $lastItem = $xpath->query('//book[last()]');
+    $lastItemAttribute = $lastItem->item(0)->getAttribute('id');
+    preg_match_all('!\d+!', $lastItemAttribute, $matches);
+    $nextId = $matches[0][0] + 1;
+    $nextId = 'bk' . $nextId;
 
-            $bookId = array();
-            $search = $_POST["searchAuthor"];
-            $elements = $xpath->query("/catalog/book[author=" . "'$search'" . "]");
-            /** @var DOMElement $element */
-            foreach ($elements as $element) {
-                $bookId[] = $element->getAttribute('id');
-            }
+    $newBook = $dom->createElement('book');
+    $newBook->setAttribute('id', $nextId);
+    $dom->documentElement->appendChild($newBook);
+    $author = $dom->createElement('author', $_POST['createAuthor']);
+    $title = $dom->createElement('title', $_POST['createBook']);
+    $genre = $dom->createElement('genre', $_POST['createGenre']);
+    $price = $dom->createElement('price', $_POST['createPrice']);
+    $publish_date = $dom->createElement('publish_date', $_POST['createPublishDate']);
+    $description = $dom->createElement('description', $_POST['createDescription']);
+    $newBook->appendChild($author);
+    $newBook->appendChild($title);
+    $newBook->appendChild($genre);
+    $newBook->appendChild($price);
+    $newBook->appendChild($publish_date);
+    $newBook->appendChild($description);
 
-            $bookElements = $dom->getElementsByTagName('book');
-            for ($i = $bookElements->length; --$i >= 0;) {
-                $book = $bookElements->item($i);
-                $bookAttribute = $book->getAttribute('id');
-                if (!in_array($bookAttribute, $bookId)) {
-                    $book->parentNode->removeChild($book);
-                }
-            }
-        }
-
-        if (isset($_POST['searchBook']) && $_POST['searchBook'] != '') {
-            $bookId = array();
-            $search = $_POST["searchBook"];
-            $elements = $xpath->query("/catalog/book[title=" . "'$search'" . "]");
-            /** @var DOMElement $element */
-            foreach ($elements as $element) {
-                $bookId[] = $element->getAttribute('id');
-            }
-
-            $bookElements = $dom->getElementsByTagName('book');
-            for ($i = $bookElements->length; --$i >= 0;) {
-                $book = $bookElements->item($i);
-                $bookAttribute = $book->getAttribute('id');
-                if (!in_array($bookAttribute, $bookId)) {
-                    $book->parentNode->removeChild($book);
-                }
-            }
-        }
-        if (isset($_POST["sort"])) {
-            $proc->setParameter('', 'sort', $_POST['sort']);
-        }
-
-        echo $proc->transformToXml($dom);
-        ?>
-    </div>
-</div>
-</body>
-</html>
+    $dom->save('books.xml');
+}
+?>

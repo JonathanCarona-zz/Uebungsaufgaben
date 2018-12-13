@@ -27,7 +27,12 @@ class Searchresult
             $this->book = null;
         }
 
-        $this->sort = $search[0]['sort'];
+        if (isset($search[0]['sort'])) {
+            $this->sort = $search[0]['sort'];
+        } else {
+            $this->sort = 'author';
+        }
+
     }
 
 
@@ -91,7 +96,7 @@ class Searchresult
             }
         }
 
-        $proc->setParameter('', 'sort', $_POST['sort']);
+        $proc->setParameter('', 'sort', $this->sort);
 
 
         echo $proc->transformToXml($dom);

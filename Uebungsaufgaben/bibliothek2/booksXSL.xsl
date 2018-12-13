@@ -28,7 +28,7 @@
 
                 <div id="content">
                     <div id="search">
-                        <form action="Bootstrap.php" method="POST">
+                        <form action="index.php" method="POST">
                             Author:
                             <input type="text" name="searchAuthor"></input>
                             Book title:

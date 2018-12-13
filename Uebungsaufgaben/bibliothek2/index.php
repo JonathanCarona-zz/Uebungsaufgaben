@@ -1,14 +1,24 @@
 <?php
+include ("Searchresult.php");
+include ("Search.php");
+include("Record.php");
+include ("Factory.php");
 
-$dom = new DOMDocument();
+$factory = new Factory();
+
+$dom = $factory->createDOMDocument();
 $dom->load('books.xml');
-$xsl = new DOMDocument();
-$xsl->load('testXSL.xsl');
-$proc = new XSLTProcessor();
+
+$xsl = $factory->createDOMDocument();
+$xsl->load('booksXSL.xsl');
+
+$proc = $factory->createXSLProc();
 $proc->importStylesheet($xsl);
-$xpath = new DOMXPath($dom);
 
-echo $proc->transformToXml($dom);
+$xpath = $factory->createXPATH($dom);
 
+$searchArray = array($_POST);
+$newSearch = new Searchresult($searchArray);
+$newSearch->showResult();
 
 ?>
