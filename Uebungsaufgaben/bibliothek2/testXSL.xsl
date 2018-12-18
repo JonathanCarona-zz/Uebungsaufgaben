@@ -11,14 +11,17 @@
             <body>
 
                 <div id="header">
-
-                    <table style="width:100%">
+                    <table>
                         <tr>
-                            <td id="title"><a href="index.php" style="text-decoration: none; color : #000000">COMPETEC LIBRARY</a></td>
-                            <td style="font-size: 25px"><a href="index.php" style="text-decoration: none; color : #000000">Home</a></td>
-                            <td style="font-size: 25px">Books</td>
-                            <td style="font-size: 25px">Contact</td>
-                            <td style="font-size: 25px">FAQ</td>
+                            <td>
+                                <a id="title" href="index.php">COMPETEC LIBRARY</a>
+                            </td>
+                            <td>
+                                <a class="navigation" href="index.php">Home</a>
+                            </td>
+                            <td class="navigation">Books</td>
+                            <td class="navigation">Contact</td>
+                            <td class="navigation">FAQ</td>
                         </tr>
                     </table>
                 </div>

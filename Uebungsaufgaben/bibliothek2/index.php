@@ -1,8 +1,7 @@
 <?php
 include ("Searchresult.php");
-include ("Search.php");
 include("Record.php");
-include ("Factory.php");
+include("Factory.php");
 
 $factory = new Factory();
 
@@ -20,5 +19,4 @@ $xpath = $factory->createXPATH($dom);
 $searchArray = array($_POST);
 $newSearch = new Searchresult($searchArray);
 $newSearch->showResult();
-
 ?>

@@ -83,6 +83,12 @@ body {
     font-size: 25px;
 }
 
+table {
+    width: 100%;
+}
+
+
+
 th {
     text-align: left;
 }
@@ -117,14 +123,23 @@ form {
 
 #title {
     font-family: "Open Sans";
-    color: #FEFFFF;
+    color: #000000;
     font-size: 40px;
     text-align: left;
     vertical-align: center;
     padding-left: 10px;
+    text-decoration: none;
 
 }
 
-.createInputText {
-    width: 50%;
+.navigation {
+    text-decoration: none;
+    color: #000000;
+    font-size: 25px;
 }
+
+#searchForm {
+    width: 80%;
+}
+
+

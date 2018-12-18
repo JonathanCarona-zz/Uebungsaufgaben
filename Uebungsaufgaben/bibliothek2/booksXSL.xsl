@@ -11,24 +11,24 @@
             <body>
                 <div id="header">
 
-                    <table style="width:100%">
+                    <table>
                         <tr>
-                            <td id="title">
-                                <a href="index.php" style="text-decoration: none; color : #000000">COMPETEC LIBRARY</a>
+                            <td>
+                                <a id="title" href="index.php">COMPETEC LIBRARY</a>
                             </td>
-                            <td style="font-size: 25px">
-                                <a href="index.php" style="text-decoration: none; color : #000000">Home</a>
+                            <td>
+                                <a class="navigation" href="index.php">Home</a>
                             </td>
-                            <td style="font-size: 25px">Books</td>
-                            <td style="font-size: 25px">Contact</td>
-                            <td style="font-size: 25px">FAQ</td>
+                            <td class="navigation">Books</td>
+                            <td class="navigation">Contact</td>
+                            <td class="navigation">FAQ</td>
                         </tr>
                     </table>
                 </div>
 
                 <div id="content">
                     <div id="search">
-                        <form action="index.php" method="POST">
+                        <form id="searchForm" action="index.php" method="POST">
                             Author:
                             <input type="text" name="searchAuthor"></input>
                             Book title:
@@ -44,11 +44,10 @@
                             </select>
                             <input name="searchForm" type="submit" value="search"></input>
                         </form>
-                        <button style="margin-left: 50%" onclick="window.location.href='Search.php'">Create new record
-                        </button>
+                        <button onclick="window.location.href='Create.php'">Create new record</button>
                     </div>
                     <div id="result">
-                        <table style="width: 100%">
+                        <table>
                             <tr>
                                 <th style="width: 15%">Author</th>
                                 <th style="width: 20%">Title</th>
