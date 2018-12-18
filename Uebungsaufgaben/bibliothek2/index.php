@@ -2,21 +2,13 @@
 include ("Searchresult.php");
 include("Record.php");
 include("Factory.php");
+include("Tool.php");
 
 $factory = new Factory();
+$tool = new Tool($factory);
 
-$dom = $factory->createDOMDocument();
-$dom->load('books.xml');
-
-$xsl = $factory->createDOMDocument();
-$xsl->load('booksXSL.xsl');
-
-$proc = $factory->createXSLProc();
-$proc->importStylesheet($xsl);
-
-$xpath = $factory->createXPATH($dom);
 
 $searchArray = array($_POST);
-$newSearch = new Searchresult($searchArray);
+$newSearch = $factory->createSearchResult($searchArray, $tool);
 $newSearch->showResult();
 ?>

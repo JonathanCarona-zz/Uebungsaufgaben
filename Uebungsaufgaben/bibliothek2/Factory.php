@@ -15,15 +15,11 @@ class Factory
         return new DOMXPath($dom);
     }
 
-    public function createSearchResult($search): Searchresult {
-        return new Searchresult($search);
+    public function createSearchResult(array $search, Tool $tool): Searchresult {
+        return new Searchresult($search, $tool);
     }
 
     public function createRecord(string $author, string $title, string $genre, float $price, string $publish_date, string $description): Record {
         return new Record($author, $title, $genre, $price, $publish_date, $description);
-    }
-
-    public function createSearch(array $search) {
-        return new Searchresult($search);
     }
 }

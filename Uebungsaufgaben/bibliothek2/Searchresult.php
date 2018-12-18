@@ -9,9 +9,11 @@ class Searchresult
     private $book;
     /** @var  */
     private $sort;
+    /** @var Tool */
+    private $tool;
 
 
-    public function __construct(array $search)
+    public function __construct(array $search, Tool $tool)
     {
 
         if (isset($search[0]['searchAuthor'])) {
@@ -33,6 +35,8 @@ class Searchresult
             $this->sort = 'author';
         }
 
+        $this->tool = $tool;
+
     }
 
 
@@ -49,13 +53,12 @@ class Searchresult
 
     public function showResult(): void
     {
-        $dom = new DOMDocument();
-        $dom->load('books.xml');
-        $xsl = new DOMDocument();
-        $xsl->load('booksXSL.xsl');
-        $proc = new XSLTProcessor();
-        $proc->importStylesheet($xsl);
-        $xpath = new DOMXPath($dom);
+        $this->tool->getDom()->load('books.xml');
+        $this->tool->getXsl()->load('booksXSL.xsl');
+        $this->tool->getProc()->importStylesheet($this->tool->getXsl());
+        $dom = $this->tool->getDom();
+        $proc = $this->tool->getProc();
+        $xpath = $this->tool->getXpath();
 
         if ($this->author != null) {
 
