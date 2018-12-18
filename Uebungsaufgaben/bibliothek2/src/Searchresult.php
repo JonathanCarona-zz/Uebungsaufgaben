@@ -53,15 +53,20 @@ class Searchresult
 
     public function showResult(): void
     {
-        $this->tool->getDom()->load('books.xml');
+/*        $this->tool->getDom()->load('books.xml');
         $this->tool->getXsl()->load('booksXSL.xsl');
         $this->tool->getProc()->importStylesheet($this->tool->getXsl());
         $dom = $this->tool->getDom();
         $proc = $this->tool->getProc();
-        $xpath = $this->tool->getXpath();
+        $xpath = $this->tool->getXpath();*/
+
+        $this->tool->getDom()->load('books.xml');
+        $this->tool->getXsl()->load('booksXSL.xsl');
+        $proc = $this->tool->getProc();
+        $proc->importStylesheet($this->tool->getXsl());
+        $xpath = $this->tool->addXpath($this->tool->getDom());
 
         if ($this->author != null) {
-
             $bookId = array();
             $search = $this->author;
             $elements = $xpath->query("/catalog/book[author=" . "'$search'" . "]");
@@ -70,7 +75,8 @@ class Searchresult
                 $bookId[] = $element->getAttribute('id');
             }
 
-            $bookElements = $dom->getElementsByTagName('book');
+
+            $bookElements = $this->tool->getDom()->getElementsByTagName('book');
             for ($i = $bookElements->length; --$i >= 0;) {
                 $book = $bookElements->item($i);
                 $bookAttribute = $book->getAttribute('id');
@@ -89,7 +95,7 @@ class Searchresult
                 $bookId[] = $element->getAttribute('id');
             }
 
-            $bookElements = $dom->getElementsByTagName('book');
+            $bookElements = $this->tool->getDom()->getElementsByTagName('book');
             for ($i = $bookElements->length; --$i >= 0;) {
                 $book = $bookElements->item($i);
                 $bookAttribute = $book->getAttribute('id');
@@ -98,11 +104,8 @@ class Searchresult
                 }
             }
         }
-
         $proc->setParameter('', 'sort', $this->sort);
-
-
-        echo $proc->transformToXml($dom);
+        echo $proc->transformToXml($this->tool->getDom());
     }
 
 

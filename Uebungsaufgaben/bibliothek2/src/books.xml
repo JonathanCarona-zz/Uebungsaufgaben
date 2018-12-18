@@ -194,4 +194,12 @@
         <publish_date>2018-12-01</publish_date>
         <description>J.R runs away with the ball.</description>
     </book>
+    <book id="bk121">
+        <author>Stephen</author>
+        <title>A</title>
+        <genre>Smith</genre>
+        <price>0.06</price>
+        <publish_date>2018-12-14</publish_date>
+        <description>ESBN</description>
+    </book>
 </catalog>

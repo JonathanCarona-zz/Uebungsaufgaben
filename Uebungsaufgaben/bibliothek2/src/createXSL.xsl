@@ -28,7 +28,7 @@
                 <div id="create">
 
                     <form action="" method="POST" id="createForm">
-                        <table width="100%" style="font-size: 30px">
+                        <table style="font-size: 30px">
                             <tr>
                                 <td>Author</td>
                                 <td><input type="text" name="createAuthor" class="createInputText" required="true"></input></td>

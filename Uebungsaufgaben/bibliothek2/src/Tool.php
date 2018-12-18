@@ -1,24 +1,25 @@
 <?php
+include "autoload.php";
 
 
 class Tool
 {
-    /** @var DOMDocument $dom */
+    /** @var DOMDocument*/
     private $dom;
-    /** @var DOMDocument $xsl */
+    /** @var DOMDocument*/
     private $xsl;
-    /** @var XSLTProcessor $proc */
+    /** @var XSLTProcessor */
     private $proc;
-    /** @var DOMXPath $xpath */
+    /** @var DOMXPath */
     private $xpath;
 
 
-    public function __construct(Factory $factory)
+    public function __construct(DOMDocument $dom, DOMDocument $xsl, XSLTProcessor $proc, DOMXPath $xpath)
     {
-        $this->dom = $factory->createDOMDocument();
-        $this->xsl = $factory->createDOMDocument();
-        $this->proc = $factory->createXSLProc();
-        $this->xpath = $factory->createXPATH($this->dom);
+        $this->dom = $dom;
+        $this->xsl = $xsl;
+        $this->proc = $proc;
+        $this->xpath = $xpath;
     }
 
     public function getDom(): DOMDocument
@@ -40,4 +41,9 @@ class Tool
     {
         return $this->xpath;
     }
+
+    public function addXpath(DOMDocument $dom) {
+        return new DOMXPath($dom);
+    }
+
 }
