@@ -1,7 +1,7 @@
 <?php
 
 
-class Record
+class RecordCreator
 {
     /** @var string */
     private $author;
@@ -18,14 +18,14 @@ class Record
     /** @var Tool */
     private $tool;
 
-    public function __construct(array $post, Tool $tool)
+    public function __construct(Request $request, Tool $tool)
     {
-        $this->author = $post['createAuthor'];
-        $this->title = $post['createBook'];
-        $this->genre = $post['createGenre'];
-        $this->price = $post['createPrice'];
-        $this->publish_date = $post['createPublishDate'];
-        $this->description = $post['createDescription'];
+        $this->author = $request->getRequest('createAuthor');
+        $this->title = $request->getRequest('createBook');
+        $this->genre = $request->getRequest('createGenre');
+        $this->price = $request->getRequest('createPrice');
+        $this->publish_date = $request->getRequest('createPublishDate');
+        $this->description = $request->getRequest('createDescription');
         $this->tool = $tool;
     }
 
@@ -36,7 +36,6 @@ class Record
         $dom = $this->tool->getDom();
         $dom->load('books.xml');
         $xpath = $this->tool->addXpath($dom);
-
 
         $lastItem = $xpath->query('//book[last()]');
         $lastItemAttribute = $lastItem->item(0)->getAttribute('id');

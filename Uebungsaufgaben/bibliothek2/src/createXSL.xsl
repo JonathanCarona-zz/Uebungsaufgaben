@@ -26,9 +26,8 @@
                     </table>
                 </div>
                 <div id="create">
-
                     <form action="" method="POST" id="createForm">
-                        <table style="font-size: 30px">
+                        <table>
                             <tr>
                                 <td>Author</td>
                                 <td><input type="text" name="createAuthor" class="createInputText" required="true"></input></td>
@@ -54,18 +53,14 @@
                                 <td><textarea rows="20" cols="150" form="createForm" name="createDescription" required="true">No description</textarea> </td>
                             </tr>
                             <tr>
-                                <td><a href="index.php"><button>Back</button></a> </td>
+                                <td></td>
                                 <td><input type="submit" value="Create"></input></td>
                             </tr>
                         </table>
-
                     </form>
-
-
+                    <a href="index.php"><button>Back</button></a>
                 </div>
             </body>
         </html>
-
     </xsl:template>
-
 </xsl:stylesheet>

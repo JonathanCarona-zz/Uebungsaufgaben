@@ -18,19 +18,29 @@ class Factory
         return new DOMXPath($dom);
     }
 
-    public function createSearchResult(array $search, Tool $tool): Searchresult
+    public function createSearchResult(Request $request, Tool $tool): Searchresult
     {
-        return new Searchresult($search, $tool);
+        return new Searchresult($request, $tool);
     }
 
-    public function createRecord(array $post, Tool $tool): Record
+    public function createRecordCreator(Request $request, Tool $tool): RecordCreator
     {
-        return new Record($post, $tool);
+        return new RecordCreator($request, $tool);
     }
 
     public function createTool(): Tool
     {
         $dom = $this->createDOMDocument();
         return new Tool($dom, $this->createDOMDocument(), $this->createXSLProc(), $this->createXPATH($dom));
+    }
+
+    public function createRenderer(): Renderer
+    {
+        return new Renderer($this->createXSLProc());
+    }
+
+    public function createRequest(array $request): Request
+    {
+        return new Request($request);
     }
 }

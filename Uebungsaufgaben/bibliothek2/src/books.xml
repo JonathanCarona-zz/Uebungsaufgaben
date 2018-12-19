@@ -202,4 +202,36 @@
         <publish_date>2018-12-14</publish_date>
         <description>ESBN</description>
     </book>
+    <book id="bk122">
+        <author>Test</author>
+        <title>tttt</title>
+        <genre>eerw234</genre>
+        <price>0.01</price>
+        <publish_date>2018-12-21</publish_date>
+        <description>No description</description>
+    </book>
+    <book id="bk123">
+        <author>Corets, Eva</author>
+        <title>QUADRUPLE Battery</title>
+        <genre>Comedy</genre>
+        <price>3.95</price>
+        <publish_date>2018-12-29</publish_date>
+        <description>No description</description>
+    </book>
+    <book id="bk124">
+        <author>Stephen</author>
+        <title>A</title>
+        <genre>Smith</genre>
+        <price>333.95</price>
+        <publish_date>2018-12-20</publish_date>
+        <description>A description</description>
+    </book>
+    <book id="bk125">
+        <author>Test</author>
+        <title>tt</title>
+        <genre>tetst</genre>
+        <price>335</price>
+        <publish_date>2018-12-28</publish_date>
+        <description>No description</description>
+    </book>
 </catalog>

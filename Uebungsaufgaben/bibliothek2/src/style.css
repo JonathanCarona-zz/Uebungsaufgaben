@@ -68,6 +68,7 @@ body {
     overflow: scroll;
 }
 
+
 #createForm {
     text-align: left;
     background-color: #DEF2F1;
@@ -78,10 +79,12 @@ body {
     margin-top: 10%;
 }
 
+
 #result td {
     font-family: "Open Sans";
     font-size: 25px;
 }
+
 
 table {
     width: 100%;
@@ -92,6 +95,7 @@ table {
 th {
     text-align: left;
 }
+
 
 form {
     font-family: "Open Sans";
@@ -132,14 +136,33 @@ form {
 
 }
 
+
 .navigation {
     text-decoration: none;
     color: #000000;
     font-size: 25px;
 }
 
+
 #searchForm {
     width: 80%;
 }
+
+
+.genrePriceDate {
+    width: 10%;
+}
+
+
+#description {
+    width: 30%;
+}
+
+
+.authorTitle {
+    width: 20%;
+}
+
+
 
 

@@ -49,12 +49,12 @@
                     <div id="result">
                         <table>
                             <tr>
-                                <th style="width: 15%">Author</th>
-                                <th style="width: 20%">Title</th>
-                                <th style="width: 10%">Genre</th>
-                                <th style="width: 10%">Price</th>
-                                <th style="width: 10%">Publishing Date</th>
-                                <th style="width: 35%">Description</th>
+                                <th class="authorTitle">Author</th>
+                                <th class="authorTitle">Title</th>
+                                <th class="genrePriceDate" >Genre</th>
+                                <th class="genrePriceDate">Price</th>
+                                <th class="genrePriceDate">Publishing Date</th>
+                                <th id="description">Description</th>
                             </tr>
                             <xsl:choose>
                                 <xsl:when test="($sort != 'low') and ($sort != 'high')">

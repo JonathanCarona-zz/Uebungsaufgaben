@@ -4,9 +4,9 @@ include "autoload.php";
 
 class Tool
 {
-    /** @var DOMDocument*/
+    /** @var DOMDocument */
     private $dom;
-    /** @var DOMDocument*/
+    /** @var DOMDocument */
     private $xsl;
     /** @var XSLTProcessor */
     private $proc;
@@ -42,7 +42,8 @@ class Tool
         return $this->xpath;
     }
 
-    public function addXpath(DOMDocument $dom) {
+    public function addXpath(DOMDocument $dom)
+    {
         return new DOMXPath($dom);
     }
 

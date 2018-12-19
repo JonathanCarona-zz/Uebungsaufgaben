@@ -2,16 +2,9 @@
 include "autoload.php";
 
 $factory = new Factory();
+$renderer = $factory->createRenderer();
 
-
-$tmpArray = array(
-    array(
-        'searchAuthor' => 'Another One'
-    )
-);
-
-
-$searchArray = array($_POST);
-$newSearch = $factory->createSearchResult($searchArray, $factory->createTool());
-$newSearch->showResult();
+$request = $factory->createRequest($_POST);
+$newSearch = $factory->createSearchResult($request, $factory->createTool());
+$renderer->render($newSearch->findResult($renderer->getProc()));
 
