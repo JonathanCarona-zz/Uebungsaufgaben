@@ -11,21 +11,23 @@ class Request
         $this->request = $request;
     }
 
-    public function hasRequest(string $key): bool
+    public function hasParameter(string $key): bool
     {
-        if (isset($this->request[$key]) && $this->request[$key] !== '') {
+        return (isset($this->request[$key]) && $this->request[$key] !== '') ? true : false;
+    }
+
+    public function getParameter(string $key): string
+    {
+        return $this->request[$key];
+    }
+
+    public function receivedRequest(): bool
+    {
+        $errors = array_filter($this->request);
+        if (!empty($errors)) {
             return true;
         }
         return false;
     }
 
-    public function getRequest(string $key): string
-    {
-        return $this->request[$key];
-    }
-
-    public function getArrayRequest(): array
-    {
-        return $this->request;
-    }
 }

@@ -13,39 +13,42 @@ class Searchresult
     private $tool;
 
 
-
     public function __construct(Request $request, Tool $tool)
     {
-
-        if ($request->hasRequest('searchAuthor')) {
-            $this->author = $request->getRequest('searchAuthor');
-        } else {
-            $this->author = null;
-        }
-
-        if ($request->hasRequest('searchBook')) {
-            $this->book = $request->getRequest('searchBook');
-        } else {
-            $this->book = null;
-        }
-
-        if ($request->hasRequest('sort')) {
-            $this->sort = $request->getRequest('sort');
-        } else {
-            $this->sort = 'author';
-        }
+        $this->initializeNotNullParameter($request);
         $this->tool = $tool;
     }
 
 
-    public function findResult(XSLTProcessor $proc): DOMDocument
+    public function initializeNotNullParameter(Request $request): void
     {
-        $this->tool->getDom()->load('books.xml');
-        $this->tool->getXsl()->load('booksXSL.xsl');
-        $xpath = $this->tool->addXpath($this->tool->getDom());
+        if ($request->hasParameter('searchAuthor')) {
+            $this->author = $request->getParameter('searchAuthor');
+        } else {
+            $this->author = null;
+        }
 
-        $proc->importStylesheet($this->tool->getXsl());
-        $proc->setParameter('', 'sort', $this->sort);
+        if ($request->hasParameter('searchBook')) {
+            $this->book = $request->getParameter('searchBook');
+        } else {
+            $this->book = null;
+        }
+
+        if ($request->hasParameter('sort')) {
+            $this->sort = $request->getParameter('sort');
+        } else {
+            $this->sort = 'author';
+        }
+    }
+
+
+    public function findResult(): DOMDocument
+    {
+        $this->tool->getXsl()->load('booksXSL.xsl');
+        $xpath = $this->tool->getXpath();
+
+        $this->tool->getXSLTProcessor()->importStylesheet($this->tool->getXsl());
+        $this->tool->getXSLTProcessor()->setParameter('', 'sort', $this->sort);
 
         if ($this->author !== null) {
             $this->findAuthor($xpath);

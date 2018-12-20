@@ -4,18 +4,18 @@ include ('autoload.php');
 
 $factory = new Factory();
 $tool = $factory->createTool();
-$renderer = $factory->createRenderer();
+$renderer = $factory->createRenderer($tool->getXSLTProcessor());
 $request = $factory->createRequest($_POST);
 
 
-if ($request->getArrayRequest() != null) {
+if ($request->receivedRequest()) {
+
+    var_dump($request->receivedRequest());
+    echo "<h1> HIT </h1>";
     $record = $factory->createRecordCreator($request, $tool);
     $record->addRecord();
 }
 
-$tool->getDom()->load('books.xml');
 $tool->getXsl()->load('createXSL.xsl');
-
 $renderer->getProc()->importStylesheet($tool->getXsl());
-$renderer->render($tool->getDom());
-
+echo $renderer->render($tool->getDom());

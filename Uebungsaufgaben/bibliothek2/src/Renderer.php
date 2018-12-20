@@ -11,14 +11,16 @@ class Renderer
         $this->proc = $proc;
     }
 
-    public function render(DOMDocument $dom): void
+    public function render(DOMDocument $dom): string
     {
-        echo $this->proc->transformToXml($dom);
+        return $this->proc->transformToXml($dom);
     }
 
     public function getProc(): XSLTProcessor
     {
         return $this->proc;
     }
+
+
 
 }

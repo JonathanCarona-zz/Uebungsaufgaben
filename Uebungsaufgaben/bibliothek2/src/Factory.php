@@ -31,12 +31,12 @@ class Factory
     public function createTool(): Tool
     {
         $dom = $this->createDOMDocument();
-        return new Tool($dom, $this->createDOMDocument(), $this->createXSLProc(), $this->createXPATH($dom));
+        return new Tool($dom, $this->createDOMDocument(), $this->createXSLProc(), $this);
     }
 
-    public function createRenderer(): Renderer
+    public function createRenderer(XSLTProcessor $proc): Renderer
     {
-        return new Renderer($this->createXSLProc());
+        return new Renderer($proc);
     }
 
     public function createRequest(array $request): Request

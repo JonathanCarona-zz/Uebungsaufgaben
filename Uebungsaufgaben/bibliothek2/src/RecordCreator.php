@@ -20,13 +20,25 @@ class RecordCreator
 
     public function __construct(Request $request, Tool $tool)
     {
-        $this->author = $request->getRequest('createAuthor');
-        $this->title = $request->getRequest('createBook');
-        $this->genre = $request->getRequest('createGenre');
-        $this->price = $request->getRequest('createPrice');
-        $this->publish_date = $request->getRequest('createPublishDate');
-        $this->description = $request->getRequest('createDescription');
+        $this->initializeValidRecordParameter($request);
         $this->tool = $tool;
+    }
+
+    private function initializeValidRecordParameter(Request $request): void
+    {
+        if ($request->hasParameter('createAuthor')) {
+            $this->author = strip_tags($request->getParameter('createAuthor'));
+        } elseif ($request->hasParameter('createBook')) {
+            $this->title = strip_tags($request->getParameter('createBook'));
+        } elseif ($request->hasParameter('createGenre')) {
+            $this->genre = strip_tags($request->getParameter('createGenre'));
+        } elseif ($request->hasParameter('createPrice') && is_numeric($request->getParameter('createPrice'))) {
+            $this->price = strip_tags($request->getParameter('createPrice'));
+        } elseif ($request->hasParameter('createPublishDate')) {
+            $this->publish_date = strip_tags($request->getParameter('createPublishDate'));
+        }
+        $this->description = strip_tags($request->getParameter('createDescription'));
+
     }
 
 
@@ -35,16 +47,10 @@ class RecordCreator
 
         $dom = $this->tool->getDom();
         $dom->load('books.xml');
-        $xpath = $this->tool->addXpath($dom);
-
-        $lastItem = $xpath->query('//book[last()]');
-        $lastItemAttribute = $lastItem->item(0)->getAttribute('id');
-        preg_match_all('!\d+!', $lastItemAttribute, $matches);
-        $nextId = $matches[0][0] + 1;
-        $nextId = 'bk' . $nextId;
+        $xpath = $this->tool->getXpath();
 
         $newBook = $dom->createElement('book');
-        $newBook->setAttribute('id', $nextId);
+        $newBook->setAttribute('id', $this->getNextID($xpath));
         $dom->documentElement->appendChild($newBook);
         $author = $dom->createElement('author', $this->author);
         $title = $dom->createElement('title', $this->title);
@@ -60,5 +66,15 @@ class RecordCreator
         $newBook->appendChild($description);
 
         $dom->save('books.xml');
+    }
+
+    private function getNextID(DOMXPath $xpath): string
+    {
+        $lastItem = $xpath->query('//book[last()]');
+        $lastItemAttribute = $lastItem->item(0)->getAttribute('id');
+        preg_match_all('!\d+!', $lastItemAttribute, $matches);
+        $nextId = $matches[0][0] + 1;
+        $nextId = 'bk' . $nextId;
+        return $nextId;
     }
 }

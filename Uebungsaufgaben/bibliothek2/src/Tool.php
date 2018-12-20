@@ -14,13 +14,21 @@ class Tool
     private $xpath;
 
 
-    public function __construct(DOMDocument $dom, DOMDocument $xsl, XSLTProcessor $proc, DOMXPath $xpath)
+    public function __construct(DOMDocument $dom, DOMDocument $xsl, XSLTProcessor $proc, Factory $factory)
     {
         $this->dom = $dom;
+        $this->dom->load('books.xml');
+        $this->xpath = $factory->createXPATH($this->dom);
         $this->xsl = $xsl;
         $this->proc = $proc;
-        $this->xpath = $xpath;
     }
+
+    public function getXpath(): DOMXPath
+    {
+        return $this->xpath;
+    }
+
+
 
     public function getDom(): DOMDocument
     {
@@ -32,19 +40,10 @@ class Tool
         return $this->xsl;
     }
 
-    public function getProc(): XSLTProcessor
+    public function getXSLTProcessor(): XSLTProcessor
     {
         return $this->proc;
     }
 
-    public function getXpath(): DOMXPath
-    {
-        return $this->xpath;
-    }
-
-    public function addXpath(DOMDocument $dom)
-    {
-        return new DOMXPath($dom);
-    }
 
 }
