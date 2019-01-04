@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="booksXSL.xsl"?>
+<catalog>
+    <book id="bk106">
+        <author>Randall, Cynthia</author>
+        <title>Lover Birds</title>
+        <genre>Romance</genre>
+        <price>4.95</price>
+        <publish_date>2000-09-02</publish_date>
+        <description>When Carla meets Paul at an ornithology
+            conference, tempers fly as feathers get ruffled.
+        </description>
+    </book>
+    <book id="bk107">
+        <author>Thurman, Paula</author>
+        <title>Splish Splash</title>
+        <genre>Romance</genre>
+        <price>4.95</price>
+        <publish_date>2000-11-02</publish_date>
+        <description>A deep sea diver finds true love twenty
+            thousand leagues beneath the sea.
+        </description>
+    </book>
+</catalog>
