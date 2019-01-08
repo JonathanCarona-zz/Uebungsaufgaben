@@ -20,12 +20,12 @@ class Factory
         return new DOMXPath($dom);
     }
 
-    public function createIndexPage(Request $request): IndexPage
+    public function createIndexPage(Request $request): Page
     {
         return new IndexPage($request, $this->createTool(), $this->createFilter());
     }
 
-    public function createRecordCreatorPage(Request $request): RecordCreatorPage
+    public function createRecordCreatorPage(Request $request): Page
     {
         return new RecordCreatorPage($request, $this->createTool(), $this->createRecordCreator());
     }
@@ -65,7 +65,7 @@ class Factory
         return new RecordCreator();
     }
 
-    public function createErrorPage(): ErrorPage
+    public function createErrorPage(): Page
     {
         return new ErrorPage($this->createTool());
     }
