@@ -17,17 +17,15 @@ class FilterTest extends TestCase
         $this->filter = new Filter();
     }
 
-    public function testFilter(): void
+    public function testFilteringForAuthorAndBookWorks(): void
     {
         /** @var Request | PHPUnit_Framework_MockObject_MockObject $request */
         $request = $this->createMock(Request::class);
         /** @var XSLTProcessor | PHPUnit_Framework_MockObject_MockObject $xsltProc */
         $xsltProc = $this->createMock(XSLTProcessor::class);
         $dom = new DOMDocument();
-        $dom->load('/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/tests/books.xml');
-        /** @var DOMXPath | PHPUnit_Framework_MockObject_MockObject $xpath */
+        $dom->load(__DIR__.'/books.xml');
         $xpath = new DOMXPath($dom);
-
 
         $request->method('hasParameter')->willReturn(true);
         $request->method('getParameter')->willReturnOnConsecutiveCalls(
@@ -39,7 +37,7 @@ class FilterTest extends TestCase
         $this->filter->filter($dom, $request, $xpath, $xsltProc);
 
         $this->assertXmlStringEqualsXmlFile(
-            '/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/tests/expectedFilterResult.xml',
+            __DIR__.'/expectedFilterResult.xml',
             $dom->saveXML()
         );
     }
