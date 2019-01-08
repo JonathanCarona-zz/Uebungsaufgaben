@@ -13,15 +13,15 @@ class Router
     }
 
 
-    public function route(Request $request, Tool $tool): DOMDocument
+    public function route(Request $request): DOMDocument
     {
         switch ($request->getURI()) {
             case '/':
-                return $this->factory->createIndexPage($request, $tool)->getPage();
+                return $this->factory->createIndexPage($request)->getPage();
             case '/create':
-                return $this->factory->createRecordCreatorPage($request, $tool)->getPage();
+                return $this->factory->createRecordCreatorPage($request)->getPage();
             default:
-                return $this->factory->createErrorPage($tool)->getPage();
+                return $this->factory->createErrorPage()->getPage();
         }
     }
 }

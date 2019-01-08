@@ -10,6 +10,6 @@ $renderer = $factory->createRenderer($tool->getXSLTProcessor());
 $router = $factory->createRouter();
 
 
-$page = $router->route($request, $tool);
+$page = $router->route($request);
 echo $renderer->render($page);
 

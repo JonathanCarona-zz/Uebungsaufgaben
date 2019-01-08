@@ -27,10 +27,7 @@ class Request
     public function receivedRequest(): bool
     {
         $errors = array_filter($this->request);
-        if (!empty($errors)) {
-            return true;
-        }
-        return false;
+        return !empty($errors);
     }
 
     public function getURI(): string
