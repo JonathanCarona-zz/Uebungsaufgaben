@@ -3,6 +3,8 @@
 
 class Factory
 {
+    private $tool;
+
     public function createDOMDocument(): DOMDocument
     {
         return new DOMDocument();
@@ -30,8 +32,12 @@ class Factory
 
     public function createTool(): Tool
     {
-        $dom = $this->createDOMDocument();
-        return new Tool($dom, $this->createDOMDocument(), $this->createXSLProc(), $this);
+        if ($this->tool === null) {
+            $dom = $this->createDOMDocument();
+            $this->tool = new Tool($dom, $this->createDOMDocument(), $this->createXSLProc(), $this);
+        }
+
+        return $this->tool;
     }
 
     public function createRenderer(XSLTProcessor $proc): Renderer
