@@ -13,7 +13,7 @@ class ErrorPage implements Page
     {
         $this->tool = $tool;
         $this->dom = $tool->getDom();
-        $this->tool->getXsl()->load(__DIR__.'/error.xsl');
+        $this->tool->getXsl()->load('/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/src/error.xsl');
         $this->tool->getXSLTProcessor()->importStylesheet($this->tool->getXsl());
     }
 
