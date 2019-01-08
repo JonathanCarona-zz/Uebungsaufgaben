@@ -17,7 +17,7 @@ class RecordCreatorPage implements Page
     {
         $this->request = $request;
         $this->tool = $tool;
-        $this->tool->getXsl()->load('createXSL.xsl');
+        $this->tool->getXsl()->load(__DIR__ .'/createXSL.xsl');
         $this->tool->getXSLTProcessor()->importStylesheet($this->tool->getXsl());
         $this->recordCreator = $recordCreator;
     }

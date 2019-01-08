@@ -63,13 +63,13 @@ class FactoryTest extends TestCase
 
     public function testIndexPageCanBeCreated(): void
     {
-        $this->assertInstanceOf(IndexPage::class, $this->factory->createIndexPage($this->request, $this->tool));
+        $this->assertInstanceOf(IndexPage::class, $this->factory->createIndexPage($this->request));
     }
 
 
     public function testRecordCreatorPageCanBeCreated(): void
     {
-        $this->assertInstanceOf(RecordCreatorPage::class, $this->factory->createRecordCreatorPage($this->request, $this->tool));
+        $this->assertInstanceOf(RecordCreatorPage::class, $this->factory->createRecordCreatorPage($this->request));
     }
 
     public function testToolCanBeCreated(): void
@@ -107,7 +107,7 @@ class FactoryTest extends TestCase
 
     public function testErrorPageCanBeCreated(): void
     {
-        $this->assertInstanceOf(ErrorPage::class, $this->factory->createErrorPage($this->tool));
+        $this->assertInstanceOf(ErrorPage::class, $this->factory->createErrorPage());
     }
 
 }

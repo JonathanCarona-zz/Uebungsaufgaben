@@ -274,4 +274,12 @@
         <publish_date>2019-01-02</publish_date>
         <description>No description</description>
     </book>
+    <book id="bk131">
+        <author>Test</author>
+        <title>test</title>
+        <genre>111</genre>
+        <price>123</price>
+        <publish_date>2019-01-03</publish_date>
+        <description>No descriptiontest</description>
+    </book>
 </catalog>

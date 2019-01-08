@@ -20,7 +20,7 @@ class IndexPage implements Page
         $this->request = $request;
         $this->tool = $tool;
         $this->dom = $tool->getDom();
-        $this->tool->getXsl()->load('booksXSL.xsl');
+        $this->tool->getXsl()->load(__DIR__ . '/booksXSL.xsl');
         $this->tool->getXSLTProcessor()->importStylesheet($this->tool->getXsl());
     }
 
