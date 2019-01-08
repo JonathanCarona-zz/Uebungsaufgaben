@@ -43,9 +43,9 @@ class RequestTest extends TestCase
 
     public function testReceivedRequest(): void
     {
-        $invalidRequestArray = array(null);
+        $emptyRequestParameters = [];
         $this->assertTrue($this->request->receivedRequest());
-        $invalidRequest = new Request($invalidRequestArray, $_SERVER);
+        $invalidRequest = new Request($emptyRequestParameters, $_SERVER);
         $this->assertFalse($invalidRequest->receivedRequest());
     }
 }

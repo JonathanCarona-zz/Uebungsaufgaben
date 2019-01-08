@@ -16,7 +16,7 @@ class Request
 
     public function hasParameter(string $key): bool
     {
-        return (isset($this->request[$key]) && $this->request[$key] !== '') ? true : false;
+        return isset($this->request[$key]) && $this->request[$key] !== '';
     }
 
     public function getParameter(string $key): string
