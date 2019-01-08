@@ -11,13 +11,13 @@
          colors="true"
          verbose="true">
     <testsuites>
-        <testsuite name="Aufgabe_OOP4">
+        <testsuite name="bibliothek">
             <directory suffix="Test.php">tests</directory>
         </testsuite>
     </testsuites>
 
     <logging>
-        <log type="coverage-html" target="build/coverage" title="Aufgabe_OOP4"
+        <log type="coverage-html" target="build/coverage" title="bibliothek"
              charset="UTF-8" yui="true" highlight="true"
              lowUpperBound="35" highLowerBound="70"/>
         <log type="coverage-clover" target="build/logs/clover.xml"/>

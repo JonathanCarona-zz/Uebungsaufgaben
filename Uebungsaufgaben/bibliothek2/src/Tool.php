@@ -1,5 +1,4 @@
 <?php
-include "autoload.php";
 
 
 class Tool
@@ -17,7 +16,7 @@ class Tool
     public function __construct(DOMDocument $dom, DOMDocument $xsl, XSLTProcessor $proc, Factory $factory)
     {
         $this->dom = $dom;
-        $this->dom->load('books.xml');
+        $this->dom->load('/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/src/books.xml');
         $this->xpath = $factory->createXPATH($this->dom);
         $this->xsl = $xsl;
         $this->proc = $proc;
@@ -27,7 +26,6 @@ class Tool
     {
         return $this->xpath;
     }
-
 
 
     public function getDom(): DOMDocument

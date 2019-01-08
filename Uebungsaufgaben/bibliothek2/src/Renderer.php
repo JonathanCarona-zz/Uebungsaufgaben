@@ -21,6 +21,4 @@ class Renderer
         return $this->proc;
     }
 
-
-
 }

@@ -5,10 +5,13 @@ class Request
 {
     /** @var array */
     private $request;
+    /** @var array */
+    private $server;
 
-    public function __construct(array $request)
+    public function __construct(array $request, array $server)
     {
         $this->request = $request;
+        $this->server = $server;
     }
 
     public function hasParameter(string $key): bool
@@ -30,4 +33,8 @@ class Request
         return false;
     }
 
+    public function getURI(): string
+    {
+        return $this->server['REQUEST_URI'];
+    }
 }

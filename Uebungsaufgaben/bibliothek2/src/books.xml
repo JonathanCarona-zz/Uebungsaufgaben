@@ -234,4 +234,44 @@
         <publish_date>2018-12-28</publish_date>
         <description>No description</description>
     </book>
+    <book id="bk126">
+        <author>Jonathan</author>
+        <title>David</title>
+        <genre>Carona</genre>
+        <price>9999999999999</price>
+        <publish_date>2019-01-09</publish_date>
+        <description>No description</description>
+    </book>
+    <book id="bk127">
+        <author>test</author>
+        <title>test2</title>
+        <genre>test3</genre>
+        <price>99</price>
+        <publish_date>2019-01-01</publish_date>
+        <description>No description</description>
+    </book>
+    <book id="bk128">
+        <author>test</author>
+        <title>t</title>
+        <genre>t</genre>
+        <price>23</price>
+        <publish_date>2019-01-02</publish_date>
+        <description>No description</description>
+    </book>
+    <book id="bk129">
+        <author>Stephen</author>
+        <title>tttt</title>
+        <genre>Basketball</genre>
+        <price>0.02</price>
+        <publish_date>2019-01-01</publish_date>
+        <description>No description</description>
+    </book>
+    <book id="bk130">
+        <author>ewdr3qwerw</author>
+        <title>A</title>
+        <genre>erqwer</genre>
+        <price>0.01</price>
+        <publish_date>2019-01-02</publish_date>
+        <description>No description</description>
+    </book>
 </catalog>

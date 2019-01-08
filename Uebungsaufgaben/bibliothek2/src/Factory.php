@@ -18,14 +18,14 @@ class Factory
         return new DOMXPath($dom);
     }
 
-    public function createSearchResult(Request $request, Tool $tool): Searchresult
+    public function createIndexPage(Request $request, Tool $tool): IndexPage
     {
-        return new Searchresult($request, $tool);
+        return new IndexPage($request, $tool, $this->createFilter());
     }
 
-    public function createRecordCreator(Request $request, Tool $tool): RecordCreator
+    public function createRecordCreatorPage(Request $request, Tool $tool): RecordCreatorPage
     {
-        return new RecordCreator($request, $tool);
+        return new RecordCreatorPage($request, $tool, $this->createRecordCreator());
     }
 
     public function createTool(): Tool
@@ -39,8 +39,28 @@ class Factory
         return new Renderer($proc);
     }
 
-    public function createRequest(array $request): Request
+    public function createRequest(array $request, array $server): Request
     {
-        return new Request($request);
+        return new Request($request, $server);
+    }
+
+    public function createRouter(): Router
+    {
+        return new Router($this);
+    }
+
+    public function createFilter(): Filter
+    {
+        return new Filter();
+    }
+
+    public function createRecordCreator(): RecordCreator
+    {
+        return new RecordCreator();
+    }
+
+    public function createErrorPage(Tool $tool): ErrorPage
+    {
+        return new ErrorPage($tool);
     }
 }

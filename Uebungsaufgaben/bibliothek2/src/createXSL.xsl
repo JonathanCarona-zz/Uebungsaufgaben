@@ -14,10 +14,10 @@
                     <table>
                         <tr>
                             <td>
-                                <a id="title" href="index.php">COMPETEC LIBRARY</a>
+                                <a id="title" href="/">COMPETEC LIBRARY</a>
                             </td>
                             <td>
-                                <a class="navigation" href="index.php">Home</a>
+                                <a class="navigation" href="/">Home</a>
                             </td>
                             <td class="navigation">Books</td>
                             <td class="navigation">Contact</td>
@@ -26,7 +26,7 @@
                     </table>
                 </div>
                 <div id="create">
-                    <form action="" method="POST" id="createForm">
+                    <form action="/create" method="POST" id="createForm">
                         <table>
                             <tr>
                                 <td>Author</td>
@@ -58,7 +58,7 @@
                             </tr>
                         </table>
                     </form>
-                    <a href="index.php"><button>Back</button></a>
+                    <a href="/"><button>Back</button></a>
                 </div>
             </body>
         </html>

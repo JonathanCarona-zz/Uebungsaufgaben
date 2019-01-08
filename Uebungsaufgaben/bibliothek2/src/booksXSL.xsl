@@ -14,10 +14,10 @@
                     <table>
                         <tr>
                             <td>
-                                <a id="title" href="index.php">COMPETEC LIBRARY</a>
+                                <a id="title" href="https://dev.bibliothek.ch">COMPETEC LIBRARY</a>
                             </td>
                             <td>
-                                <a class="navigation" href="index.php">Home</a>
+                                <a class="navigation" href="/">Home</a>
                             </td>
                             <td class="navigation">Books</td>
                             <td class="navigation">Contact</td>
@@ -28,7 +28,7 @@
 
                 <div id="content">
                     <div id="search">
-                        <form id="searchForm" action="index.php" method="POST">
+                        <form id="searchForm" action="/" method="POST">
                             Author:
                             <input type="text" name="searchAuthor"></input>
                             Book title:
@@ -44,8 +44,9 @@
                             </select>
                             <input name="searchForm" type="submit" value="search"></input>
                         </form>
-                        <button onclick="window.location.href='Create.php'">Create new record</button>
+                        <a href="/create">Create new record</a>
                     </div>
+
                     <div id="result">
                         <table>
                             <tr>

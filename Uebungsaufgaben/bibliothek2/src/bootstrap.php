@@ -1,12 +1,15 @@
 <?php
+include("autoload.php");
 
 
-class bootstrap
-{
+$factory = new Factory();
 
-    public function receiveRequest(Request $request)
-    {
+$tool = $factory->createTool();
+$request = $factory->createRequest($_POST, $_SERVER);
+$renderer = $factory->createRenderer($tool->getXSLTProcessor());
+$router = $factory->createRouter();
 
-    }
 
-}
+$page = $router->route($request, $tool);
+echo $renderer->render($page);
+

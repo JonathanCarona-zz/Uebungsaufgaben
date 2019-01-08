@@ -1,7 +1,7 @@
 <?php
 
 
-class Page
+interface Page
 {
-
+    public function getPage(): DOMDocument;
 }
