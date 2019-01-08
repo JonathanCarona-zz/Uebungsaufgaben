@@ -21,9 +21,9 @@ class RecordCreatorTest extends TestCase
         /** @var PHPUnit_Framework_MockObject_MockObject | Request $request */
         $request = $this->createMock(Request::class);
         $dom = new DOMDocument();
-        $dom->load('/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/tests/books.xml');
+        $dom->load(__DIR__ . '/books.xml');
         $defaultdom = new DOMDocument();
-        $defaultdom->load('/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/tests/books.xml');
+        $defaultdom->load(__DIR__ . '/books.xml');
         $xpath = new DOMXPath($dom);
         $request->method('hasParameter')->willReturn(true);
         $request->method('getParameter')->willReturnOnConsecutiveCalls(
@@ -40,10 +40,10 @@ class RecordCreatorTest extends TestCase
 
         $this->recordCreator->addRecord($request, $dom, $xpath);
         $this->assertXmlStringEqualsXmlFile(
-            '/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/tests/expectedRecord.xml',
+            __DIR__ . '/expectedRecord.xml',
             $dom->saveXML()
         );
 
-        $defaultdom->save('/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/tests/books.xml');
+        $defaultdom->save(__DIR__ . '/books.xml');
     }
 }
