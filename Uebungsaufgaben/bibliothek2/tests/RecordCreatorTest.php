@@ -10,10 +10,19 @@ class RecordCreatorTest extends TestCase
     /** @var RecordCreator */
     private $recordCreator;
 
+    /** @var string */
+    private $originalXml;
+
 
     protected function setUp()
     {
         $this->recordCreator = new RecordCreator();
+        $this->originalXml = file_get_contents(__DIR__ . '/books.xml');
+    }
+
+    protected function tearDown()
+    {
+        file_put_contents(__DIR__ . '/books.xml', $this->originalXml);
     }
 
     public function testRecordCanBeAdded(): void
@@ -22,8 +31,6 @@ class RecordCreatorTest extends TestCase
         $request = $this->createMock(Request::class);
         $dom = new DOMDocument();
         $dom->load(__DIR__ . '/books.xml');
-        $defaultdom = new DOMDocument();
-        $defaultdom->load(__DIR__ . '/books.xml');
         $xpath = new DOMXPath($dom);
         $request->method('hasParameter')->willReturn(true);
         $request->method('getParameter')->willReturnOnConsecutiveCalls(
@@ -36,14 +43,10 @@ class RecordCreatorTest extends TestCase
             'When Carla meets Paul at an ornithologyconference'
         );
 
-
-
         $this->recordCreator->addRecord($request, $dom, $xpath);
         $this->assertXmlStringEqualsXmlFile(
             __DIR__ . '/expectedRecord.xml',
             $dom->saveXML()
         );
-
-        $defaultdom->save(__DIR__ . '/books.xml');
     }
 }
