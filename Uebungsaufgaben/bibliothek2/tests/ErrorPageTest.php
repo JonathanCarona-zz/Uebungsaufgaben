@@ -1,8 +1,5 @@
 <?php
 
-include("autoload.php");
-include("/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/src/autoload.php");
-
 use PHPUnit\Framework\TestCase;
 
 
@@ -22,7 +19,7 @@ class ErrorPageTest extends TestCase
         $this->errorPage = new ErrorPage($this->tool);
     }
 
-    public function testGetPage()
+    public function testGetPage(): void
     {
         $dom = $this->createMock(DOMDocument::class);
         $this->tool->method('getDom')->willReturn($dom);

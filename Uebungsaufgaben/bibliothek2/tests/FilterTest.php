@@ -1,7 +1,5 @@
 <?php
 
-include("autoload.php");
-include("/var/www/Uebungsaufgaben/Uebungsaufgaben/bibliothek2/src/autoload.php");
 
 use PHPUnit\Framework\TestCase;
 
