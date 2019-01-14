@@ -68,6 +68,7 @@ body {
     overflow: scroll;
 }
 
+
 #createForm {
     text-align: left;
     background-color: #DEF2F1;
@@ -78,15 +79,23 @@ body {
     margin-top: 10%;
 }
 
+
 #result td {
     font-family: "Open Sans";
     font-size: 25px;
-    overflow: scroll;
 }
+
+
+table {
+    width: 100%;
+}
+
+
 
 th {
     text-align: left;
 }
+
 
 form {
     font-family: "Open Sans";
@@ -118,14 +127,42 @@ form {
 
 #title {
     font-family: "Open Sans";
-    color: #FEFFFF;
+    color: #000000;
     font-size: 40px;
     text-align: left;
     vertical-align: center;
     padding-left: 10px;
+    text-decoration: none;
 
 }
 
-.createInputText {
-    width: 50%;
+
+.navigation {
+    text-decoration: none;
+    color: #000000;
+    font-size: 25px;
 }
+
+
+#searchForm {
+    width: 80%;
+}
+
+
+.genrePriceDate {
+    width: 10%;
+}
+
+
+#description {
+    width: 30%;
+}
+
+
+.authorTitle {
+    width: 20%;
+}
+
+
+
+
